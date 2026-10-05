@@ -15,7 +15,7 @@ def sha(path):
 def atomic_json(path,data):
     tmp=path.with_suffix(path.suffix+".tmp");tmp.write_text(json.dumps(data,indent=2),encoding="utf-8");tmp.replace(path)
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--config",default="configs/stage1-subj01.json");ap.add_argument("--run-id",required=True);ap.add_argument("--resume",action="store_true");ap.add_argument("--steps",type=int);ap.add_argument("--limit-trials",type=int);ap.add_argument("--batch",type=int);ap.add_argument("--microbatch",type=int);ap.add_argument("--smoke",action="store_true");args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument("--config",default="configs/stage1-subj01.json");ap.add_argument("--run-id",required=True);ap.add_argument("--resume",action="store_true");ap.add_argument("--steps",type=int);ap.add_argument("--limit-trials",type=int);ap.add_argument("--batch",type=int);ap.add_argument("--microbatch",type=int);ap.add_argument("--smoke",action="store_true");ap.add_argument("--stop-after",type=int);args=ap.parse_args()
     cfg=json.loads((ROOT/args.config).read_text())
     if args.batch:cfg["global_batch"]=args.batch
     if args.microbatch:cfg["microbatch"]=args.microbatch
@@ -31,10 +31,17 @@ def main():
     torch.backends.cuda.matmul.allow_tf32=True
     subject=f"subj{cfg['subject']:02d}"
     manifest=ROOT/f"manifests/{subject}_train.csv";rows=pd.read_csv(manifest)
-    if args.limit_trials:rows=rows.iloc[:args.limit_trials].copy()
     targets_dir=ROOT/f"data/clip_targets_{subject}"
-    if not (targets_dir/"complete.json").exists():raise RuntimeError("CLIP target cache incomplete")
-    image_ids=np.load(targets_dir/"image_ids.npy");lookup={int(i):k for k,i in enumerate(image_ids)}
+    image_ids=np.load(targets_dir/"image_ids.npy")
+    if not (targets_dir/"complete.json").exists():
+        if not args.smoke:raise RuntimeError("CLIP target cache incomplete")
+        completed=json.loads((targets_dir/"progress.json").read_text())["completed"]
+        rows=rows[rows.nsd_id.isin(image_ids[:completed])].copy()
+    if args.limit_trials:rows=rows.iloc[:args.limit_trials].copy()
+    lookup={int(i):k for k,i in enumerate(image_ids)}
+    subset_file=run/"train_rows.csv"
+    if args.resume and subset_file.exists():rows=pd.read_csv(subset_file)
+    elif args.smoke:rows.to_csv(subset_file,index=False,lineterminator="\n")
     cache_rows=np.array([lookup[int(i)] for i in rows.nsd_id],dtype=np.int64)
     image_maps=[np.load(targets_dir/f"image_layer_{layer}.npy",mmap_mode="r") for layer in [12,16,20,24]]
     text_maps=[np.load(targets_dir/f"text_caption_{k}.npy",mmap_mode="r") for k in range(3)]
@@ -68,6 +75,8 @@ def main():
     print(json.dumps({"event":"start",**resolved}),flush=True)
     logfile=(run/"metrics.jsonl").open("a",buffering=1)
     model.train()
+    if step>=total_steps:
+        print("ALREADY_COMPLETE",flush=True);return
     def save(next_epoch,next_batch,milestone=False):
         payload={"model_state_dict":model.state_dict(),"optimizer":optimizer.state_dict(),"scheduler":scheduler.state_dict(),"step":step,"next_epoch":next_epoch,"next_batch":next_batch,"config":resolved,"torch_rng":torch.get_rng_state(),"cuda_rng":torch.cuda.get_rng_state(device),"python_rng":random.getstate(),"numpy_rng":np.random.get_state()}
         tmp=run/"latest.pt.partial";torch.save(payload,tmp);os.replace(tmp,run/"latest.pt")
@@ -99,6 +108,10 @@ def main():
                 if at_end or step%50==0 or step>=total_steps:
                     save(epoch+1 if at_end else epoch,0 if at_end else batch_index+1,milestone=at_end and (epoch+1)%cfg["checkpoint_epochs"]==0)
                 del targets,target_images
+                if args.stop_after and step>=args.stop_after and step<total_steps:
+                    save(epoch+1 if at_end else epoch,0 if at_end else batch_index+1)
+                    atomic_json(run/"status.json",{"state":"paused_for_resume_validation","step":step,"time":time.time()})
+                    return
                 if step>=total_steps:
                     atomic_json(run/"status.json",{"state":"completed","step":step,"epoch":epoch+1,"time":time.time(),"smoke":args.smoke})
                     (run/"complete.json").write_text(json.dumps({"step":step,"checkpoint":"latest.pt","git_commit":commit,"smoke":args.smoke}))

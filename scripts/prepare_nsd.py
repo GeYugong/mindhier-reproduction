@@ -65,7 +65,7 @@ def main():
     for name,rows in [("train",train),("test_trials",test)]:
         path=ROOT/f"manifests/{s}_{name}.csv"
         with path.open("w",newline="") as f:
-            w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+            w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
     ids=np.array(sorted(tset|vset),dtype=np.int64);np.save(ROOT/f"data/{s}_image_ids.npy",ids)
     counts=collections.Counter(r["nsd_id"] for r in test)
     result={"subject":args.subject,"beta_shape":shape,"train_trials":len(train),"train_unique_images":len(tset),"test_trials":len(test),"test_unique_images":len(vset),"overlap_images":0,"repetition_histogram":dict(collections.Counter(counts.values())),"train_manifest_sha256":digest(ROOT/f"manifests/{s}_train.csv"),"test_manifest_sha256":digest(ROOT/f"manifests/{s}_test_trials.csv"),"nsd_id_indexing":"zero-based","beta_row_indexing":"zero-based"}
