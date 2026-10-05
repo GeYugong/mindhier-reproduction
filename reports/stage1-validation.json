@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "updates": 100,
+  "loss_start": 25.486124277114868,
+  "loss_end": 8.652823612093925,
+  "test_data_used": false,
+  "purpose": "training, checkpoint and numerical stability validation; not a test-set result"
+}
