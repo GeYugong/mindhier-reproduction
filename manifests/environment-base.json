@@ -1,0 +1,5 @@
+{
+  "base_python": "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/bin/python",
+  "mode": "venv with read-only system site packages; project-specific dependency overrides",
+  "base_is_modified": false
+}
