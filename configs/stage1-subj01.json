@@ -1,0 +1,25 @@
+{
+  "subject": 1,
+  "seed": 42,
+  "epochs": 300,
+  "global_batch": 512,
+  "microbatch": 8,
+  "lr": 0.0001,
+  "weight_decay": 0.01,
+  "adam_betas": [
+    0.9,
+    0.999
+  ],
+  "warmup_epochs": 2,
+  "min_lr_ratio": 0.01,
+  "mse_scale": 200000,
+  "softclip_temperature": 0.005,
+  "precision": "bf16",
+  "clip_target_precision": "float32",
+  "checkpoint_epochs": 10,
+  "device": "cuda:0",
+  "physical_gpu": "1",
+  "gradient_method": "RNG-preserving full-batch gradient cache",
+  "selection": "fixed final epoch, no test-based selection",
+  "warmup_provenance": "2 epochs inherited from author OneCycle warmup fraction; cosine minimum 0.01 is an explicit reproduction setting, not specified by the paper"
+}

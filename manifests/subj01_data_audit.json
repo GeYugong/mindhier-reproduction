@@ -1,0 +1,19 @@
+{
+  "subject": 1,
+  "beta_shape": [
+    30000,
+    15724
+  ],
+  "train_trials": 27000,
+  "train_unique_images": 9000,
+  "test_trials": 3000,
+  "test_unique_images": 1000,
+  "overlap_images": 0,
+  "repetition_histogram": {
+    "3": 1000
+  },
+  "train_manifest_sha256": "188e5623d5b965730ee734dca4b78a635508a7bea40d9257bed77332c84d9c6f",
+  "test_manifest_sha256": "27d3f2cc776ce5a9612c30d333bede97f23f5d9843c66d964d8b7702226bbad9",
+  "nsd_id_indexing": "zero-based",
+  "beta_row_indexing": "zero-based"
+}

@@ -1,0 +1,7 @@
+{
+  "source": "http://images.cocodataset.org/annotations/annotations_trainval2017.zip",
+  "archive_sha256": "113a836d90195ee1f884e704da6304dfaaecff1f023f49b6ca93c4aaae470268",
+  "captions_sha256": "d226ff671005bb412ad2dbaa86eeb7c76e4b96d94f98bb36cb93463365a87e99",
+  "mapping_sha256": "e46fca15901196541b8921aa8c03ee9d662e7da085d852e13ebb01f89c7623c6",
+  "selection": "first 3 annotations in original COCO annotation order; indexed by NSD ID; no test-derived tuning"
+}
