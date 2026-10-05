@@ -1,0 +1,21 @@
+{
+  "images": 10000,
+  "image_layers": [
+    12,
+    16,
+    20,
+    24
+  ],
+  "image_shape": [
+    257,
+    768
+  ],
+  "text_shape": [
+    77,
+    768
+  ],
+  "dtype": "float32",
+  "compute_dtype": "float32",
+  "preprocessing": "PIL Resize(512,LANCZOS), ToTensor, CLIPImageProcessor(do_rescale=False)",
+  "caption_selection": "first 3 original COCO annotations"
+}
