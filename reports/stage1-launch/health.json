@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-05T16:44:50.980228+08:00",
+  "run_id": "s01-stage1-paper-seed42",
+  "training_commit": "fb1220a457b5b9321289244e6df6f2039fe9187a",
+  "last_step": 57,
+  "total_steps": 15600,
+  "epoch": 2,
+  "first_loss": 29.707721710205078,
+  "last_loss": 20.25479555130005,
+  "all_logged_values_finite": true,
+  "steps_contiguous": true,
+  "error_lines": [],
+  "checkpoint_step": 52,
+  "checkpoint_file_bytes": 3687716107,
+  "checkpoint_validation": "metadata and file size only; actual restore was validated in separate preflight run",
+  "peak_gpu_gib": 6.123506546020508
+}
