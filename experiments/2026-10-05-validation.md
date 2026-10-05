@@ -22,3 +22,7 @@ Subject 1 train/test 图像 ID 无交集。体积 beta 的全部数值已检查�
 Switti 预训练审计：30 层、宽度 1920，目标参数 2318294656；可直接匹配目标参数的 96.119%。不匹配集中在原 2048 维文本上下文到 768 维 fMRI 上下文的投影与归一化，另有新的 fMRI pooler。详细键列表见 manifests/switti-adaptation.json；阶段二训练前仍须验证真实加载和显存。
 
 每小时检查已由本地 Codex 创建，任务 ID 为 mindhier，状态 ACTIVE。检查进程、日志、损失、checkpoint、资源及三端同步；仅在关键变化、完成、失败或需要处理时通知。
+
+## 完整恢复检查通过
+
+3 次 batch=512 更新已完成，实际损失依次为 29.70017147, 29.67138577, 29.44947278。step=1 保存后恢复到 step=3，峰值显存 6.1185 GiB。原始输出、逐步指标、启动配置及 checkpoint 元数据已归档到 reports/stage1-memory-resume/；完整权重保留在 runs/s01-stage1-memory-resume-check/latest.pt。该结果仅用于数值、显存与恢复验证。
