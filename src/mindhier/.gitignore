@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+.env.*
+*.egg-info/
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data and artifacts
+data/nsd/
+data/images/
+data/annotations/
+data/extracted_features/
+data/processed/
+data/masks/
+outputs/
+runs/
+checkpoints/
+pretrained/
+stats/
+wandb/
+artifacts/
+logs/
+
+# Model files
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Media and generated arrays
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.nii
+*.nii.gz
+
+# Keep repository configs
+!configs/*.yaml

@@ -1,0 +1,13 @@
+upstream/
+*.pdf
+.envs/
+.cache/
+data/
+pretrained/
+runs/
+artifacts/
+.transport/
+__pycache__/
+*.pyc
+.env
+*.partial
