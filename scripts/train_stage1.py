@@ -71,6 +71,7 @@ def main():
         step=state["step"];epoch_start=state["next_epoch"];batch_start=state["next_batch"]
         torch.set_rng_state(state["torch_rng"]);torch.cuda.set_rng_state(state["cuda_rng"],device);random.setstate(state["python_rng"]);np.random.set_state(state["numpy_rng"])
         del state
+    atomic_json(run/f"config-step-{step:06d}.json",resolved)
     atomic_json(run/"config.json",resolved)
     print(json.dumps({"event":"start",**resolved}),flush=True)
     logfile=(run/"metrics.jsonl").open("a",buffering=1)

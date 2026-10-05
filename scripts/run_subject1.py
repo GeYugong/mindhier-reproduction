@@ -47,7 +47,8 @@ def main():
         commit_generated("docs(data): record verified download and data manifests")
         # Three full 512-sample updates; explicitly stop and resume after the first.
         rid="s01-stage1-memory-resume-check"
-        child(rid,["--smoke","--steps","3","--limit-trials","512","--batch","512","--microbatch","8","--stop-after","1"])
+        if not (ROOT/"runs"/rid/"latest.pt").exists():
+            child(rid,["--smoke","--steps","3","--limit-trials","512","--batch","512","--microbatch","8","--stop-after","1"])
         child(rid,["--smoke","--steps","3","--limit-trials","512","--batch","512","--microbatch","8"])
         rows=[json.loads(x) for x in (ROOT/"runs"/rid/"metrics.jsonl").read_text().splitlines()]
         assert len(rows)==3 and rows[-1]["step"]==3

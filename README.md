@@ -2,7 +2,9 @@
 
 项目本地目录：`D:\0code\Research\x_neuroadapter\mindhier-reproduction`。
 
-2026-10-05：当前目标为双 RTX 5090，连接已验证。新服务器仓库计划直接建立在个人根目录下：`/data/matengyu/geyugong/mindhier-reproduction/`。采用服务器提交、本地同步、本地 gh/Git 推送 GitHub 私有仓库的工作流程。完整计划见 [双 RTX 5090 复现计划](PLAN_5090_ZH.md)，本次观察见 [连接与复现预检](experiments/preflight/MH-GPU-261005-001.md)。尚未启动训练。
+2026-10-05：当前目标为双 RTX 5090，连接、BF16 反向和双卡 NCCL 已验证。服务器独立仓库已建立在个人根目录下：`/data/matengyu/geyugong/mindhier-reproduction/`。采用服务器提交、本地同步、本地 gh/Git 推送 GitHub 私有仓库的工作流程。完整计划见 [双 RTX 5090 复现计划](PLAN_5090_ZH.md)。当前已启动 batch=512 的真实模型显存与恢复检查；完整缓存、100 次试运行及正式阶段一训练由 scripts/run_subject1.py 顺序推进。私有仓库：https://github.com/GeYugong/mindhier-reproduction 。
+
+运行配置及差异见 [实施记录](protocols/IMPLEMENTATION_NOTES.md)，实时状态由 scripts/status.py 读取。每小时检查已启用；尚未产生正式解码结果或八指标。
 
 以下保留 2026-10-03（北京时间）的初次环境检查、论文阅读和目录整理记录。原目录名为“新建文件夹”；重命名前后两份 PDF 的 SHA-256 校验一致。该次检查尚未安装专用环境、下载大规模数据或启动训练。
 
