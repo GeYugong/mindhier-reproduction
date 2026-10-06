@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-06T20:07:48.077447+08:00",
+  "run_id": "s01-stage1-paper-seed42",
+  "last_step": 5405,
+  "epoch": 104,
+  "last_loss": 4.467251725494862,
+  "all_values_finite": true,
+  "steps_contiguous": true,
+  "error_lines": [],
+  "checkpoint": {
+    "step": 5400,
+    "next_epoch": 103,
+    "next_batch": 44,
+    "time": 1791288425.7003455,
+    "bytes": 3687716107
+  },
+  "milestone": {
+    "path": "runs/s01-stage1-paper-seed42/epoch-100.pt",
+    "bytes": 3687716107,
+    "sha256": "f24f0f0a2c55f72f97e0f2f55069b31ae6c2aaa85df919373ad637deb1ef67f4",
+    "validation": "file size and SHA-256; no restore performed during this check"
+  },
+  "milestone_files": {
+    "epoch-040.pt": 3687716107,
+    "epoch-080.pt": 3687716107,
+    "epoch-090.pt": 3687716107,
+    "epoch-020.pt": 3687716107,
+    "epoch-010.pt": 3687716107,
+    "epoch-060.pt": 3687716107,
+    "epoch-070.pt": 3687716107,
+    "epoch-100.pt": 3687716107,
+    "epoch-050.pt": 3687716107,
+    "epoch-030.pt": 3687716107
+  },
+  "training_commit": "fb1220a457b5b9321289244e6df6f2039fe9187a"
+}
