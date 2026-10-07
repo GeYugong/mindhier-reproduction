@@ -7,6 +7,11 @@ out={"checked_at":time.time(),"server_commit":subprocess.check_output(["git","-C
 for name,rel in {"pipeline":"runs/pipeline/state.json","cache":"data/clip_targets_subj01/progress.json","data":"manifests/subj01_data_audit.json","memory_resume":"reports/stage1-memory-resume.json","validation":"reports/stage1-validation.json"}.items():
     p=ROOT/rel
     if p.exists():out[name]=json.loads(p.read_text())
+stage2=ROOT/"runs/stage2-preflight/status.json"
+if stage2.exists():
+    raw=json.loads(stage2.read_text())
+    out["stage2_preflight"]={k:v for k,v in raw.items() if k not in ["initialized_keys","traceback"]}
+    out["stage2_preflight"]["status_mtime"]=stage2.stat().st_mtime
 out["runs"]={}
 for p in (ROOT/"runs").glob("s01-stage1-*"):
     status=p/"status.json"
