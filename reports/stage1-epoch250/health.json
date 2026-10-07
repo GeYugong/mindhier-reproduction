@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-07T09:21:37.543532+08:00",
+  "run_id": "s01-stage1-paper-seed42",
+  "last_step": 13315,
+  "epoch": 257,
+  "last_loss": 3.869372110813856,
+  "all_values_finite": true,
+  "steps_contiguous": true,
+  "error_lines": [],
+  "checkpoint": {
+    "step": 13312,
+    "next_epoch": 256,
+    "next_batch": 0,
+    "time": 1791336050.68637,
+    "bytes": 3687716107
+  },
+  "milestone": {
+    "path": "runs/s01-stage1-paper-seed42/epoch-250.pt",
+    "bytes": 3687716107,
+    "sha256": "36ea9267d744c5c0cc198ef553d9367ec2a4f3674ef7e06756ee1cd2ed32d9ff",
+    "validation": "file size and SHA-256; no restore performed during this check"
+  },
+  "milestone_files": {
+    "epoch-200.pt": 3687716107,
+    "epoch-140.pt": 3687716107,
+    "epoch-040.pt": 3687716107,
+    "epoch-160.pt": 3687716107,
+    "epoch-120.pt": 3687716107,
+    "epoch-190.pt": 3687716107,
+    "epoch-130.pt": 3687716107,
+    "epoch-080.pt": 3687716107,
+    "epoch-110.pt": 3687716107,
+    "epoch-180.pt": 3687716107,
+    "epoch-220.pt": 3687716107,
+    "epoch-090.pt": 3687716107,
+    "epoch-020.pt": 3687716107,
+    "epoch-230.pt": 3687716107,
+    "epoch-010.pt": 3687716107,
+    "epoch-060.pt": 3687716107,
+    "epoch-070.pt": 3687716107,
+    "epoch-100.pt": 3687716107,
+    "epoch-250.pt": 3687716107,
+    "epoch-170.pt": 3687716107,
+    "epoch-240.pt": 3687716107,
+    "epoch-210.pt": 3687716107,
+    "epoch-050.pt": 3687716107,
+    "epoch-150.pt": 3687716107,
+    "epoch-030.pt": 3687716107
+  },
+  "training_commit": "fb1220a457b5b9321289244e6df6f2039fe9187a"
+}
