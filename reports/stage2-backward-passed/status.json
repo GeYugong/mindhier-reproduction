@@ -1,0 +1,19 @@
+{
+  "phase": "single_example_update_passed",
+  "pid": 3185898,
+  "start_time": 1791354830.102328,
+  "formal_training": false,
+  "effective_batch": 1,
+  "test_data_used": false,
+  "git_commit": "4f7dc33de360c0e7f8d7c7af299ffec9fd252925",
+  "updated_at": 1791354940.51512,
+  "nsd_id": 61882,
+  "beta_row": 1,
+  "loss": 9.495967864990234,
+  "backward_seconds": 20.00157303409651,
+  "peak_gpu_gib": 9.461810111999512,
+  "seconds": 37.54562651598826,
+  "gradients_on_cpu": true,
+  "checkpoint_resume_validated": false,
+  "full_batch80_validated": false
+}
