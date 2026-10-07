@@ -1,0 +1,85 @@
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  _init_core_state(
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/utils/_contextlib.py:124: UserWarning: When using ``NO_SHARD`` for ``ShardingStrategy``, full_state_dict will be returned.
+  return func(*args, **kwargs)
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_state_dict_utils.py:230: UserWarning: Failed to clone() tensor with name _fsdp_wrapped_module.blocks.21.ada_lin.1.weight on rank 0. This may mean that this state_dict entry could point to invalid memory regions after returning from state_dict() call if this parameter is managed by FSDP. Please check clone implementation of _fsdp_wrapped_module.blocks.21.ada_lin.1.weight. Error: CUDA out of memory. Tried to allocate 86.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 1.91 GiB is free. Process 2827619 has 14.65 GiB memory in use. Including non-PyTorch memory, this process has 14.59 GiB memory in use. 13.48 GiB allowed; Of the allocated memory 12.89 GiB is allocated by PyTorch, and 551.68 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+  param_hook(state_dict, prefix, fqn)
+[init_weights] HierarchyAR with init_std=0.0131762
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/validate_stage2_batch80.py", line 134, in <module>
+[rank0]:     if __name__=='__main__':main()
+[rank0]:                             ^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/validate_stage2_batch80.py", line 127, in main
+[rank0]:     payload={'model':model.state_dict(),'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),'step':1,'next_sample':80,'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state(),'inputs_sha256':result['inputs_sha256'],'git_commit':result['git_commit'],'reference_logits':reference,'effective_batch':80,'world_size':1,'seed':42}
+[rank0]:                      ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2270, in state_dict
+[rank0]:     module.state_dict(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2270, in state_dict
+[rank0]:     module.state_dict(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2270, in state_dict
+[rank0]:     module.state_dict(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2266, in state_dict
+[rank0]:     hook(self, prefix, keep_vars)
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_state_dict_utils.py", line 788, in _pre_state_dict_hook
+[rank0]:     _pre_state_dict_hook_fn[fsdp_state._state_dict_type](
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_state_dict_utils.py", line 295, in _full_pre_state_dict_hook
+[rank0]:     _common_unshard_pre_state_dict_hook(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_state_dict_utils.py", line 161, in _common_unshard_pre_state_dict_hook
+[rank0]:     _enter_unshard_params_ctx(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_state_dict_utils.py", line 125, in _enter_unshard_params_ctx
+[rank0]:     fsdp_state._unshard_params_ctx[module].__enter__()
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 137, in __enter__
+[rank0]:     return next(self.gen)
+[rank0]:            ^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_unshard_param_utils.py", line 202, in _unshard_fsdp_state_params
+[rank0]:     _unshard(state, handle, computation_stream, computation_stream)
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 294, in _unshard
+[rank0]:     ran_pre_unshard = handle.pre_unshard()
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_flat_param.py", line 1338, in pre_unshard
+[rank0]:     self.flat_param_to(self.device, non_blocking=True)
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_flat_param.py", line 2494, in flat_param_to
+[rank0]:     self.flat_param.data = self.flat_param.to(*args, **kwargs)
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 294.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 1.91 GiB is free. Process 2827619 has 14.65 GiB memory in use. Including non-PyTorch memory, this process has 14.59 GiB memory in use. 13.48 GiB allowed; Of the allocated memory 12.89 GiB is allocated by PyTorch, and 551.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Exception ignored in: <generator object _unshard_fsdp_state_params at 0x7a84dbb2f9c0>
+Traceback (most recent call last):
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_unshard_param_utils.py", line 230, in _unshard_fsdp_state_params
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 609, in close
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 601, in __exit__
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 586, in __exit__
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 144, in __exit__
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_unshard_param_utils.py", line 120, in _unflatten_as_params
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/contextlib.py", line 144, in __exit__
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_flat_param.py", line 2127, in unflatten_as_params
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/_flat_param.py", line 1972, in _use_unsharded_views
+ImportError: sys.meta_path is None, Python is likely shutting down
+terminate called after throwing an instance of 'c10::Error'
+  what():  self->cdata.use_count() == 1 INTERNAL ASSERT FAILED at "/pytorch/torch/csrc/autograd/python_variable.cpp":3623, please report a bug to PyTorch. 
+Exception raised from THPVariable_clear at /pytorch/torch/csrc/autograd/python_variable.cpp:3623 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7a884f57205d in /data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, char const*) + 0x69 (0x7a884f5067d3 in /data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x851257 (0x7a8785651257 in /data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/lib/libtorch_python.so)
+frame #3: <unknown function> + 0x1ce49e (0x584cb91a049e in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+frame #4: <unknown function> + 0x2d27bc (0x584cb92a47bc in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+frame #5: Py_FinalizeEx + 0x150 (0x584cb92916e0 in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+frame #6: <unknown function> + 0x133c7c (0x584cb9105c7c in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+frame #7: Py_BytesMain + 0x37 (0x584cb9265067 in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+frame #8: <unknown function> + 0x2a1ca (0x7a8850e2a1ca in /lib/x86_64-linux-gnu/libc.so.6)
+frame #9: __libc_start_main + 0x8b (0x7a8850e2a28b in /lib/x86_64-linux-gnu/libc.so.6)
+frame #10: _start + 0x2e (0x584cb9264eee in /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python)
+

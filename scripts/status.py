@@ -19,7 +19,7 @@ if backward.exists():
     if "pid" in raw:
         try:os.kill(raw["pid"],0);out["stage2_backward_probe"]["process_alive"]=True
         except ProcessLookupError:out["stage2_backward_probe"]["process_alive"]=False
-batch80=ROOT/"runs/stage2-batch80-resume/status.json"
+batch80=ROOT/"runs/stage2-batch80-cpu-checkpoint/status.json"
 if batch80.exists():
     value=json.loads(batch80.read_text());value.pop("traceback",None)
     if "pid" in value:

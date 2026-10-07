@@ -25,7 +25,7 @@ from models.fmri_c2f_encoder import FMRI2CLIP
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--resume',action='store_true');args=ap.parse_args()
-    out=ROOT/'runs/stage2-batch80-resume';out.mkdir(exist_ok=True)
+    out=ROOT/'runs/stage2-batch80-cpu-checkpoint';out.mkdir(exist_ok=True)
     if (out/'status.json').exists() and not args.resume: raise RuntimeError('Use archived evidence and a fresh run directory before rerunning')
     assert not subprocess.check_output(['git','-C',str(ROOT),'status','--porcelain'],text=True).strip()
     result={'phase':'preparing_real_training_input','pid':os.getpid(),'start_time':time.time(),'formal_training':False,'effective_batch':80,'test_data_used':False,'git_commit':subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()}
@@ -97,7 +97,15 @@ def main():
             checkpoint=torch.load(out/'checkpoint.pt',map_location='cpu',weights_only=False,mmap=True)
             assert checkpoint['step']==1 and checkpoint['inputs_sha256']==result['inputs_sha256']
             assert checkpoint['git_commit']==result['git_commit']
-            model.load_state_dict(checkpoint['model'],strict=True)
+            assert checkpoint['format']=='fsdp_world1_cpu_flat_v1'
+            params=dict(model.named_parameters());buffers=dict(model.named_buffers())
+            assert set(params)==set(checkpoint['parameters']) and set(buffers)==set(checkpoint['buffers'])
+            with torch.no_grad():
+                for name,p in params.items():
+                    saved=checkpoint['parameters'][name]
+                    assert p.shape==saved.shape and p.dtype==saved.dtype
+                    p.copy_(saved)
+                for name,b in buffers.items():b.copy_(checkpoint['buffers'][name])
             optimizer.load_state_dict(checkpoint['optimizer']);scheduler.load_state_dict(checkpoint['scheduler'])
             torch.set_rng_state(checkpoint['torch_rng']);torch.cuda.set_rng_state(checkpoint['cuda_rng'])
             assert all(int(s['step'])==1 for s in optimizer.state.values())
@@ -124,7 +132,10 @@ def main():
         assert all(torch.isfinite(p).all().item() for p in model.parameters())
         optimizer.zero_grad(set_to_none=True);acc.release();del acc;gc.collect()
         reference=evaluate();result['phase']='saving_checkpoint';save()
-        payload={'model':model.state_dict(),'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),'step':1,'next_sample':80,'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state(),'inputs_sha256':result['inputs_sha256'],'git_commit':result['git_commit'],'reference_logits':reference,'effective_batch':80,'world_size':1,'seed':42}
+        # All master parameters already reside on CPU after the offloaded step.
+        # Avoid full_state_dict unsharding, which gathers them onto the shared GPU.
+        assert all(p.device.type=='cpu' for p in model.parameters())
+        payload={'format':'fsdp_world1_cpu_flat_v1','parameters':{n:p.detach().cpu() for n,p in model.named_parameters()},'buffers':{n:b.detach().cpu() for n,b in model.named_buffers()},'optimizer':optimizer.state_dict(),'scheduler':scheduler.state_dict(),'step':1,'next_sample':80,'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state(),'inputs_sha256':result['inputs_sha256'],'git_commit':result['git_commit'],'reference_logits':reference,'effective_batch':80,'world_size':1,'seed':42}
         torch.save(payload,out/'checkpoint.partial');os.replace(out/'checkpoint.partial',out/'checkpoint.pt')
         result.update(phase='batch80_saved_restore_pending',checkpoint_bytes=(out/'checkpoint.pt').stat().st_size,checkpoint_sha256=hashlib.file_digest((out/'checkpoint.pt').open('rb'),'sha256').hexdigest(),seconds=time.monotonic()-start,full_batch80_validated=True,checkpoint_resume_validated=False);save()
     except BaseException as e:

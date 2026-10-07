@@ -3,7 +3,7 @@
 import subprocess,os,json,time,fcntl
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-run=ROOT/'runs/stage2-batch80-resume';run.mkdir(exist_ok=True)
+run=ROOT/'runs/stage2-batch80-cpu-checkpoint';run.mkdir(exist_ok=True)
 lock=(run/'supervisor.lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
 (run/'supervisor.pid').write_text(str(os.getpid()))
 python=ROOT/'.envs/mindhier/bin/python'
