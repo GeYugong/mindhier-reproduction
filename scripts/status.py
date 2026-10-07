@@ -26,6 +26,12 @@ if batch80.exists():
         try:os.kill(value["pid"],0);value["process_alive"]=True
         except ProcessLookupError:value["process_alive"]=False
     out["stage2_batch80_validation"]=value
+pilot=ROOT/"runs/s01-stage2-pilot-seed42/status.json"
+if pilot.exists():
+    value=json.loads(pilot.read_text());value.pop("traceback",None)
+    try:os.kill(value["pid"],0);value["process_alive"]=True
+    except ProcessLookupError:value["process_alive"]=False
+    out["stage2_pilot"]=value
 out["runs"]={}
 for p in (ROOT/"runs").glob("s01-stage1-*"):
     status=p/"status.json"

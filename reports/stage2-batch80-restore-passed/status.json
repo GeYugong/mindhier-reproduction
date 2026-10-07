@@ -1,0 +1,14 @@
+{
+  "phase": "batch80_checkpoint_restore_passed",
+  "pid": 3262002,
+  "start_time": 1791362628.4918017,
+  "formal_training": false,
+  "effective_batch": 80,
+  "test_data_used": false,
+  "git_commit": "b5f2899fb8552530c2e64882730b50abefd4971c",
+  "updated_at": 1791362728.2988217,
+  "inputs_sha256": "a2d0f8e44de00668a95e80d3918ed2f82ec3c750a4c15696b773c589b6b188bc",
+  "checkpoint_resume_validated": true,
+  "full_batch80_validated": true,
+  "restored_output_max_error": 0.0
+}

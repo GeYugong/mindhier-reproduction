@@ -1,0 +1,26 @@
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  _init_core_state(
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[init_weights] HierarchyAR with init_std=0.0131762
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  _init_core_state(
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[init_weights] HierarchyAR with init_std=0.0131762
