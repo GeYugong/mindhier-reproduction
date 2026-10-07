@@ -19,6 +19,13 @@ if backward.exists():
     if "pid" in raw:
         try:os.kill(raw["pid"],0);out["stage2_backward_probe"]["process_alive"]=True
         except ProcessLookupError:out["stage2_backward_probe"]["process_alive"]=False
+batch80=ROOT/"runs/stage2-batch80-resume/status.json"
+if batch80.exists():
+    value=json.loads(batch80.read_text());value.pop("traceback",None)
+    if "pid" in value:
+        try:os.kill(value["pid"],0);value["process_alive"]=True
+        except ProcessLookupError:value["process_alive"]=False
+    out["stage2_batch80_validation"]=value
 out["runs"]={}
 for p in (ROOT/"runs").glob("s01-stage1-*"):
     status=p/"status.json"

@@ -1,0 +1,1 @@
+{"samples": 80, "gradient_max_absolute_error": 4.470348358154297e-08, "adam_update_max_absolute_error": 0.0, "passed": true, "scope": "FP32 CPU accumulator versus full batch; does not validate full generator BF16 numerics"}
