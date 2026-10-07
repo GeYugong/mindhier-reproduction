@@ -28,7 +28,10 @@ def main():
         with safe_open(ROOT/'pretrained/switti/model.safetensors',framework='pt',device='cpu') as f:
             for k in f.keys():
                 if k in state and tuple(f.get_slice(k).get_shape())==tuple(state[k].shape):
-                    t=f.get_tensor(k); assert torch.isfinite(t).all(),k
+                    t=f.get_tensor(k)
+                    if k == 'attn_bias_for_masking':
+                        assert torch.equal(t,state[k]), 'Pretrained attention mask differs'
+                    else: assert torch.isfinite(t).all(),k
                     state[k].copy_(t);loaded.append(k)
                 else:skipped.append(k)
         missing=set(state)-set(loaded)

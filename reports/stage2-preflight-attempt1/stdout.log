@@ -1,0 +1,17 @@
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+[init_weights] HierarchyAR with init_std=0.0131762
+Traceback (most recent call last):
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/preflight_stage2.py", line 62, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/preflight_stage2.py", line 31, in main
+    t=f.get_tensor(k); assert torch.isfinite(t).all(),k
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: attn_bias_for_masking

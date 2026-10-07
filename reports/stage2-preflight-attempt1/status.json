@@ -1,0 +1,9 @@
+{
+  "start_time": 1791350494.1874485,
+  "phase": "failed",
+  "training_started": false,
+  "input": "synthetic full-resolution shape probe",
+  "git_commit": "3d323824d72d242c0a00ffbfcb54b227344099e1",
+  "error": "AssertionError('attn_bias_for_masking')",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/matengyu/geyugong/mindhier-reproduction/scripts/preflight_stage2.py\", line 31, in main\n    t=f.get_tensor(k); assert torch.isfinite(t).all(),k\n                              ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: attn_bias_for_masking\n"
+}
