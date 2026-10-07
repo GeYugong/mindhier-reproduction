@@ -55,7 +55,7 @@ def main():
         torch.cuda.set_per_process_memory_fraction(0.45,device)
         model=model.to(device).eval()
         model.freqs_cis=model.freqs_cis.to(device)
-        with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16):
+        with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16,cache_enabled=False):
             logits=model(torch.randn(1,model.L-1,32,device=device),[torch.randn(1,257,768,device=device) for _ in range(4)],torch.randn(1,768,device=device),None)
         assert torch.isfinite(logits).all()
         result.update(phase='forward_passed_backward_pending',logits_shape=list(logits.shape),peak_gpu_gib=torch.cuda.max_memory_allocated()/2**30,finished_at=time.time())

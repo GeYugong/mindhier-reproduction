@@ -30,5 +30,10 @@
   "checkpoint_reloaded_cpu": true,
   "model_tensors_finite": true,
   "errors": [],
-  "local_backup": "pending"
+  "local_backup": {
+    "path": "D:/0code/Research/x_neuroadapter/mindhier-reproduction/artifacts/s01-stage1-paper-seed42/epoch-300.pt",
+    "sha256": "f03f44ec732c2304f05efd03950f133239de266d9a9fec8866a0877e105f5b13",
+    "verified_at": 1791350559.5979915,
+    "bytes": 3687716107
+  }
 }

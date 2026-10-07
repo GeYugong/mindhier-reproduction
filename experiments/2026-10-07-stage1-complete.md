@@ -7,3 +7,7 @@
 阶段二新增实际加载预检：严格限定可重新初始化的 62 个条件适配张量，其余 Switti 权重必须匹配既有审计；新条件层保留作者 init_weights(init_std=-1) 的 seed=42 初始化。VQ-VAE 与阶段一编码器均要求 strict=True。全分辨率合成输入前向只验证计算路径，不构成真实训练、反向、恢复或端到端验收。后续仍须显存适配、真实训练集试运行、9000 次正式更新、解码及八指标。
 
 第一次阶段二加载预检被有限值断言中止：attention mask 的负无穷是屏蔽语义所需，不代表权重损坏。原始异常保存在 reports/stage2-preflight-attempt1；修复为 attention mask 与模型构造值精确相等，其余张量仍检查有限值。
+
+最终检查点已完整传输到本地 artifacts/s01-stage1-paper-seed42/epoch-300.pt；本地 Get-FileHash SHA256 与服务器相同，双副本核验完成。
+
+第二次预检完成 Switti 610 项加载、96.1189955% 参数覆盖，以及 VQ-VAE/脑编码器 strict 加载。全分辨率合成前向触及 45% 显存限额，OOM 原始证据见 reports/stage2-preflight-attempt2。分配13.43 GiB、保留未分配690.29 MiB；关闭 autocast 权重缓存重试，保持 FP32 参数与 BF16 运算，不调整模型结构或训练协议。
