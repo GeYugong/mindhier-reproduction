@@ -12,7 +12,7 @@ if stage2.exists():
     raw=json.loads(stage2.read_text())
     out["stage2_preflight"]={k:v for k,v in raw.items() if k not in ["initialized_keys","traceback"]}
     out["stage2_preflight"]["status_mtime"]=stage2.stat().st_mtime
-backward=ROOT/"runs/stage2-backward-probe-mp/status.json"
+backward=ROOT/"runs/stage2-backward-probe-wrapped/status.json"
 if backward.exists():
     raw=json.loads(backward.read_text())
     out["stage2_backward_probe"]={k:v for k,v in raw.items() if k != "traceback"}

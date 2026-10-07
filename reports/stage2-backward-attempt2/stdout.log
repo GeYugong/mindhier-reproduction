@@ -1,0 +1,42 @@
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  _init_core_state(
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[init_weights] HierarchyAR with init_std=0.0131762
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/probe_stage2_backward.py", line 90, in <module>
+[rank0]:     if __name__=='__main__':main()
+[rank0]:                             ^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/probe_stage2_backward.py", line 80, in main
+[rank0]:     assert torch.isfinite(loss);loss.backward()
+[rank0]:                                 ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/_tensor.py", line 631, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/__init__.py", line 381, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 1177, in unpack_hook
+[rank0]:     frame.check_recomputed_tensors_match(gid)
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 921, in check_recomputed_tensors_match
+[rank0]:     raise CheckpointError(
+[rank0]: torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: Recomputed values for the following tensors have different metadata than during the forward pass.
+[rank0]: tensor at position 45:
+[rank0]: saved metadata: {'shape': torch.Size([1, 1028, 768]), 'dtype': torch.bfloat16, 'device': device(type='cuda', index=0)}
+[rank0]: recomputed metadata: {'shape': torch.Size([1, 1028, 768]), 'dtype': torch.float32, 'device': device(type='cuda', index=0)}
+[rank0]: .
+
+[rank0]: Tip: To see a more detailed error message, either pass `debug=True` to
+[rank0]: `torch.utils.checkpoint.checkpoint(...)` or wrap the code block
+[rank0]: with `with torch.utils.checkpoint.set_checkpoint_debug_enabled(True):` to
+[rank0]: enable checkpoint‑debug mode globally.
+

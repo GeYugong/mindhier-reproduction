@@ -12,7 +12,7 @@ from PIL import Image
 from safetensors import safe_open
 from safetensors.torch import load_file
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP, CPUOffload, MixedPrecision
-from torch.distributed.fsdp.wrap import transformer_auto_wrap_policy
+from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import checkpoint_wrapper, CheckpointImpl
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src/mindhier/MindHier'))
 import dist
@@ -23,7 +23,7 @@ from models.vqvae import VQVAE
 from models.fmri_c2f_encoder import FMRI2CLIP
 
 def main():
-    out=ROOT/'runs/stage2-backward-probe-mp';out.mkdir(exist_ok=True)
+    out=ROOT/'runs/stage2-backward-probe-wrapped';out.mkdir(exist_ok=True)
     if (out/'status.json').exists(): raise RuntimeError('Use archived evidence and a fresh run directory before rerunning')
     assert not subprocess.check_output(['git','-C',str(ROOT),'status','--porcelain'],text=True).strip()
     result={'phase':'preparing_real_training_input','pid':os.getpid(),'start_time':time.time(),'formal_training':False,'effective_batch':1,'test_data_used':False,'git_commit':subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()}
@@ -68,9 +68,9 @@ def main():
         del state,t;gc.collect()
         rendezvous=out/'rendezvous'
         td.init_process_group('nccl',init_method='file://'+str(rendezvous),rank=0,world_size=1)
-        model.freqs_cis=model.freqs_cis.to(device);model.enable_gradient_checkpointing()
+        model.freqs_cis=model.freqs_cis.to(device);model.disable_gradient_checkpointing()
         for i,block in enumerate(model.blocks):
-            model.blocks[i]=FSDP(block,cpu_offload=CPUOffload(offload_params=True),mixed_precision=MixedPrecision(param_dtype=torch.bfloat16,reduce_dtype=torch.float32,buffer_dtype=torch.float32,cast_forward_inputs=True),device_id=device)
+            model.blocks[i]=FSDP(checkpoint_wrapper(block,checkpoint_impl=CheckpointImpl.NO_REENTRANT),cpu_offload=CPUOffload(offload_params=True),mixed_precision=MixedPrecision(param_dtype=torch.bfloat16,reduce_dtype=torch.float32,buffer_dtype=torch.float32,cast_forward_inputs=True),device_id=device)
         model=FSDP(model,cpu_offload=CPUOffload(offload_params=True),device_id=device)
         model.train();optimizer=torch.optim.AdamW(model.parameters(),lr=1e-4,betas=(.9,.95),weight_decay=.01,foreach=False)
         result['phase']='real_forward_backward';save();torch.cuda.reset_peak_memory_stats();start=time.monotonic()
