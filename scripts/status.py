@@ -12,6 +12,13 @@ if stage2.exists():
     raw=json.loads(stage2.read_text())
     out["stage2_preflight"]={k:v for k,v in raw.items() if k not in ["initialized_keys","traceback"]}
     out["stage2_preflight"]["status_mtime"]=stage2.stat().st_mtime
+backward=ROOT/"runs/stage2-backward-probe-mp/status.json"
+if backward.exists():
+    raw=json.loads(backward.read_text())
+    out["stage2_backward_probe"]={k:v for k,v in raw.items() if k != "traceback"}
+    if "pid" in raw:
+        try:os.kill(raw["pid"],0);out["stage2_backward_probe"]["process_alive"]=True
+        except ProcessLookupError:out["stage2_backward_probe"]["process_alive"]=False
 out["runs"]={}
 for p in (ROOT/"runs").glob("s01-stage1-*"):
     status=p/"status.json"

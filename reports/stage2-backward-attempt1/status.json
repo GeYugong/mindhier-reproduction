@@ -1,0 +1,14 @@
+{
+  "phase": "failed",
+  "pid": 3180875,
+  "start_time": 1791354484.516845,
+  "formal_training": false,
+  "effective_batch": 1,
+  "test_data_used": false,
+  "git_commit": "aac60d5d2b0cf669b73854d9ab90fbe8a4f1af1d",
+  "updated_at": 1791354617.9702442,
+  "nsd_id": 61882,
+  "beta_row": 1,
+  "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 34.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 1.88 GiB is free. Process 2827619 has 14.65 GiB memory in use. Including non-PyTorch memory, this process has 14.62 GiB memory in use. 13.48 GiB allowed; Of the allocated memory 13.22 GiB is allocated by PyTorch, and 246.37 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)')",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/matengyu/geyugong/mindhier-reproduction/scripts/probe_stage2_backward.py\", line 78, in main\n    assert torch.isfinite(loss);loss.backward()\n                                ^^^^^^^^^^^^^^^\n  File \"/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/__init__.py\", line 381, in backward\n    _engine_run_backward(\n  File \"/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 34.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 1.88 GiB is free. Process 2827619 has 14.65 GiB memory in use. Including non-PyTorch memory, this process has 14.62 GiB memory in use. 13.48 GiB allowed; Of the allocated memory 13.22 GiB is allocated by PyTorch, and 246.37 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"
+}

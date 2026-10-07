@@ -1,0 +1,28 @@
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation
+  warnings.warn("Cannot import apex RMSNorm, switch to vanilla implementation")
+
+[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== 
+    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0
+    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0.]))
+
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.
+  _init_core_state(
+/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+[init_weights] HierarchyAR with init_std=0.0131762
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/probe_stage2_backward.py", line 88, in <module>
+[rank0]:     if __name__=='__main__':main()
+[rank0]:                             ^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/mindhier-reproduction/scripts/probe_stage2_backward.py", line 78, in main
+[rank0]:     assert torch.isfinite(loss);loss.backward()
+[rank0]:                                 ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/_tensor.py", line 631, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/__init__.py", line 381, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 34.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 1.88 GiB is free. Process 2827619 has 14.65 GiB memory in use. Including non-PyTorch memory, this process has 14.62 GiB memory in use. 13.48 GiB allowed; Of the allocated memory 13.22 GiB is allocated by PyTorch, and 246.37 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
