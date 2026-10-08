@@ -1,0 +1,20 @@
+{
+  "phase": "decoded_metrics_pending",
+  "pid": 3845291,
+  "started_at": 1791420304.1420476,
+  "formal_training": false,
+  "test_data_used": false,
+  "context_order": "forward",
+  "mask": "global query offset per scale",
+  "target_samples": 16,
+  "completed_samples": 16,
+  "seed_base": 59,
+  "cfg": 6,
+  "top_k": 400,
+  "top_p": 0.95,
+  "turn_on_cfg_start_si": 1,
+  "git_commit": "d8c5934611d272544d4843ed9807b9ea2bdc5bb3",
+  "updated_at": 1791420412.2546463,
+  "finished_at": 1791420412.2544694,
+  "peak_gpu_gib": 11.890572547912598
+}

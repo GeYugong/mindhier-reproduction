@@ -1,0 +1,16 @@
+{"index": 0, "nsd_id": 61882, "beta_row": 1, "seed": 59, "seconds": 4.77690863609314, "tensor": "00-nsd61882.pt", "sha256": "0495013f41132f5d81081e8242e9f1f734fe17a879a1d0f4fe901d468a90e3c4"}
+{"index": 1, "nsd_id": 828, "beta_row": 2, "seed": 60, "seconds": 0.2723391056060791, "tensor": "01-nsd828.pt", "sha256": "3a2807259c803826d07612bf777e43d3cb432ed6e8f9a22eb8fb78fbba0f6c4e"}
+{"index": 2, "nsd_id": 67573, "beta_row": 3, "seed": 61, "seconds": 0.27143430709838867, "tensor": "02-nsd67573.pt", "sha256": "17d718d7e4b5ba8977b944b1df4cc27e2086cf271d49d0b2814b3db363e2a3f1"}
+{"index": 3, "nsd_id": 16020, "beta_row": 4, "seed": 62, "seconds": 0.27148962020874023, "tensor": "03-nsd16020.pt", "sha256": "4009c5ccd708c9d63fa3cbb1b2b250b30c42b408927fc3ac2197f9fee2ad56da"}
+{"index": 4, "nsd_id": 40422, "beta_row": 5, "seed": 63, "seconds": 0.2707347869873047, "tensor": "04-nsd40422.pt", "sha256": "a2b62f6f491c85c5806f9506d86dab61cbf398eb62e8c410172eea089855d8df"}
+{"index": 5, "nsd_id": 51517, "beta_row": 6, "seed": 64, "seconds": 0.2711477279663086, "tensor": "05-nsd51517.pt", "sha256": "d89fe24f19738bffa1dcb2dd5a1a8ed58ca3f61ec04f5d294341e69deb06a0a2"}
+{"index": 6, "nsd_id": 62325, "beta_row": 7, "seed": 65, "seconds": 0.271350622177124, "tensor": "06-nsd62325.pt", "sha256": "3a32f268ebfd188fdd4287a66fb1569d71cd7a43b5cce5aab54858b7963a09d6"}
+{"index": 7, "nsd_id": 50610, "beta_row": 8, "seed": 66, "seconds": 0.27238941192626953, "tensor": "07-nsd50610.pt", "sha256": "38bbd6dc99002d2afbea8f4e9cdbb833ac5b190ecec7391b680e281e39674553"}
+{"index": 8, "nsd_id": 55065, "beta_row": 9, "seed": 67, "seconds": 0.2726161479949951, "tensor": "08-nsd55065.pt", "sha256": "9bd3ef743a5bb51097f2e1decaa2e8187536240c0da8340abe241446f7f9cbbf"}
+{"index": 9, "nsd_id": 37398, "beta_row": 10, "seed": 68, "seconds": 0.27141308784484863, "tensor": "09-nsd37398.pt", "sha256": "a7ee82bc2e9584bcdb316c78b3427d9668913211bb2a23de66c5988f8e6ebfd1"}
+{"index": 10, "nsd_id": 18039, "beta_row": 11, "seed": 69, "seconds": 0.2719440460205078, "tensor": "10-nsd18039.pt", "sha256": "98e6f7da5f0e3432b412a354387f96f93d50b081dada184d28b3820c39b631d4"}
+{"index": 11, "nsd_id": 67533, "beta_row": 12, "seed": 70, "seconds": 0.2724878787994385, "tensor": "11-nsd67533.pt", "sha256": "232c18e74f85bf2796af7f87cf42f9663e4e34bd7225a48101ab17cf91a7a7dc"}
+{"index": 12, "nsd_id": 21822, "beta_row": 13, "seed": 71, "seconds": 0.2741889953613281, "tensor": "12-nsd21822.pt", "sha256": "9aab7d669d41f4cf091ff991c7a29d3a5ff16adb8469c7cdd000a2d1e7f33082"}
+{"index": 13, "nsd_id": 35405, "beta_row": 14, "seed": 72, "seconds": 0.2707793712615967, "tensor": "13-nsd35405.pt", "sha256": "f55f385bfccdfe6b467414015f6f4fdf2e8b4bb0c72fdecdd53e3c29fc32608e"}
+{"index": 14, "nsd_id": 21690, "beta_row": 15, "seed": 73, "seconds": 0.27068543434143066, "tensor": "14-nsd21690.pt", "sha256": "1ade1d7c25267a2bd35988f4a8364a4311e5124deebc2e6155215db24ccc213a"}
+{"index": 15, "nsd_id": 28278, "beta_row": 16, "seed": 74, "seconds": 0.272075891494751, "tensor": "15-nsd28278.pt", "sha256": "8e5ecf6c87c583baf12c806843cf3f20ff42174a7066f739d463fabc9ec11674"}

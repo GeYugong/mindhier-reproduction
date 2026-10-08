@@ -15,3 +15,11 @@ CPU展开后独立保存并strict重载670个参数键，通过最终checkpoint�
 原pipeline反转context但pilot训练未反转。内部解码显式选择forward以匹配已训练pilot；pipeline参数保留reverse供明确协议使用。该pilot只能证明稳定性及推理链路，不是论文深到浅协议的正式结果。正式训练前须将训练和推理共同冻结为论文深到浅映射并验证，不得将pilot权重作为正式初始化。
 
 内部解码入口scripts/decode_stage2_pilot.py固定前16个训练trial、seed=59+index、N=1、cfg=6、top_k=400、top_p=.95、CFG起始尺度1，保存原始浮点张量、PNG、GT与样本映射。测试ID交集断言为空。八指标仍待验证。
+
+## 内部解码验收
+
+16/16个训练trial完成N=1解码；峰值分配显存11.89057GiB。50个文件（16浮点张量、16输出PNG、16原图PNG、状态及样本清单）已同步本地并逐项SHA256核验，清单见reports/stage2-pilot-final/decode-files.json。仅完成生成与数据完整性验收，八指标sanity仍待执行。
+
+本地D盘剩余容量不足以宽裕保留完整checkpoint和额外9.29GB可重建导出副本，因此中止导出副本SCP，已接收内容保留为generator-fp32.pt.partial；服务器导出原件未修改。完整checkpoint备份优先完成。后续正式训练与完整解码的本地备份需要额外存储空间，不删除现有结果以腾空间。
+
+完整pilot checkpoint已完成SCP并本地SHA256核验，与服务器47d38e44…65620a完全一致，大小27,876,370,698 bytes。核验后D盘余7,306,702,848 bytes。

@@ -1,0 +1,10 @@
+{
+  "verified_at": 1791420602.9942913,
+  "checkpoint": "s01-stage2-pilot-seed42/checkpoint-step-100.pt",
+  "bytes": 27876370698,
+  "sha256": "47d38e44b10760220a87ef44744a49d54b787caeda685d9338fb63a5dd65620a",
+  "server_and_local_verified": true,
+  "decode_files_verified": 50,
+  "local_free_bytes": 7306702848,
+  "export_derivative_local_copy": "incomplete .partial retained; server original verified"
+}
