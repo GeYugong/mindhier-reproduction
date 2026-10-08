@@ -32,6 +32,13 @@ if pilot.exists():
     try:os.kill(value["pid"],0);value["process_alive"]=True
     except ProcessLookupError:value["process_alive"]=False
     out["stage2_pilot"]=value
+for run_name in ['s01-stage2-formal-validation-mb4','s01-stage2-paper-seed42']:
+    path=ROOT/'runs'/run_name/'status.json'
+    if path.exists():
+        value=json.loads(path.read_text());value.pop('traceback',None)
+        try:os.kill(value['pid'],0);value['process_alive']=True
+        except ProcessLookupError:value['process_alive']=False
+        out[run_name]=value
 out["runs"]={}
 for p in (ROOT/"runs").glob("s01-stage1-*"):
     status=p/"status.json"

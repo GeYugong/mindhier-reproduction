@@ -1,0 +1,6 @@
+{
+  "microbatch": 4,
+  "effective_batch": 80,
+  "max_gradient_error": 2.9802322387695312e-08,
+  "passed": true
+}
