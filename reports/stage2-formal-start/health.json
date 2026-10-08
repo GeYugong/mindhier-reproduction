@@ -1,0 +1,22 @@
+{
+  "checked_at": 1791431163.4989765,
+  "completed_steps": 25,
+  "target_steps": 9000,
+  "recent_median_seconds": 112.2655287142843,
+  "remaining_training_days_estimate": 11.661841669105343,
+  "loss_start": 9.65914568901062,
+  "loss_latest": 8.163624715805053,
+  "checkpoint": {
+    "step": 1,
+    "bytes": 27876378698,
+    "time": 1791428371.207658,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "checkpoint_file_bytes": 27876378698,
+  "log_alerts": [],
+  "metrics_mtime": 1791431083.2407973,
+  "status_mtime": 1791431161.155981,
+  "stdout_mtime": 1791428201.8546634,
+  "process_alive": true,
+  "supervisor_alive": true
+}
