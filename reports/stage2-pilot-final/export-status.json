@@ -1,0 +1,10 @@
+{
+  "phase": "export_verified",
+  "formal_training": false,
+  "started_at": 1791420053.6608975,
+  "export_bytes": 9293523173,
+  "parameter_keys": 670,
+  "max_absolute_error": 0.0,
+  "sha256": "7bd9db4dcd2d791a43fa78912794ed46671aafd7d480e67439e7cd7863da21a6",
+  "finished_at": 1791420104.5329406
+}

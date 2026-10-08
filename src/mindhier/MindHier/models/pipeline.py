@@ -32,7 +32,11 @@ class MindHierPipeline:
     def __init__(self, hierarchy_ar, vae, fmri_vitl, 
                  device, dtype=torch.float32,
                  clip_model_name_or_path="openai/clip-vit-large-patch14",
+                 context_order="forward",
                  ):
+        if context_order not in ("forward", "reverse"):
+            raise ValueError("context_order must match the training protocol")
+        self.context_order = context_order
         self.hierarchy_ar = hierarchy_ar.to(dtype)
         self.switti = self.hierarchy_ar  # Deprecated compatibility alias.
         self.vae = vae.to(dtype)
@@ -218,7 +222,7 @@ class MindHierPipeline:
                 apply_smooth = more_smooth
 
             num_context = len(context)
-            current_context = torch.cat(context[::-1], dim=1)
+            current_context = torch.cat(context if self.context_order == "forward" else context[::-1], dim=1)
             # current_context = torch.cat(context, dim=1)
             for block_idx, block in enumerate(ar_model.blocks):
                 x_BLC = block(

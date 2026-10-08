@@ -1,0 +1,17 @@
+# 阶段二100次试运行完成
+
+固定80个训练trial完成100次batch80更新，平均CE由9.599795降到7.765528，最终更新峰值分配显存9.45893GiB。正常退出，非正式9000步训练；原始日志和检查点校验归档 reports/stage2-pilot-final。
+
+接下来验证world1 CPU平坦参数按模型命名参数顺序导出为独立FP32 state_dict。要求每个分组元素总数精确匹配、所有参数被覆盖一次、所有buffer键匹配，保存后strict重载；通过与最终checkpoint保存的teacher-forcing logits比较，验证展开顺序。独立模型block采用BF16参数及输入转换，root保持FP32，复现已验收FSDP前向精度语义。尚未通过比较前不得用于解码。
+
+推理源码检查发现 pipeline 当前使用反向context顺序，而训练forward使用正向；分尺度cross-attention掩码的推理切片也需核验。内部解码前需记录并处理训练与推理的实际层级对应，不能仅生成图像就认定协议正确。八指标及正式训练尚未完成。
+
+## 独立导出验收与推理修复
+
+CPU展开后独立保存并strict重载670个参数键，通过最终checkpoint的teacher-forcing前向对照，最大绝对误差0。导出FP32文件9,293,523,173 bytes，SHA256为7bd9db4dcd2d791a43fa78912794ed46671aafd7d480e67439e7cd7863da21a6。完整100步checkpoint为27,876,370,698 bytes，SHA256为47d38e44b10760220a87ef44744a49d54b787caeda685d9338fb63a5dd65620a。本地完整checkpoint备份尚在传输，未完成前不记为双端验收。
+
+原分尺度cross-attention推理每次取完整mask的前L行，忽略当前尺度起始位置。现缓存模式累加query offset，开关缓存时归零，并按上下文长度、组数及设备重建mask。CPU小维度真实CrossAttention对照十尺度分段与整段输出，批量2/1与上下文4/2组均通过，最大误差1.78814e-7。非缓存完整训练forward保持原掩码行为。
+
+原pipeline反转context但pilot训练未反转。内部解码显式选择forward以匹配已训练pilot；pipeline参数保留reverse供明确协议使用。该pilot只能证明稳定性及推理链路，不是论文深到浅协议的正式结果。正式训练前须将训练和推理共同冻结为论文深到浅映射并验证，不得将pilot权重作为正式初始化。
+
+内部解码入口scripts/decode_stage2_pilot.py固定前16个训练trial、seed=59+index、N=1、cfg=6、top_k=400、top_p=.95、CFG起始尺度1，保存原始浮点张量、PNG、GT与样本映射。测试ID交集断言为空。八指标仍待验证。

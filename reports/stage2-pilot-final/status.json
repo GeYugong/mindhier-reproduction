@@ -1,0 +1,18 @@
+{
+  "phase": "pilot_completed",
+  "pid": 3294554,
+  "start_time": 1791365342.3217988,
+  "formal_training": false,
+  "effective_batch": 80,
+  "test_data_used": false,
+  "git_commit": "15fce0caf8c5ea2ff8cd987969ce49fa2fae20cd",
+  "updated_at": 1791416890.0354056,
+  "inputs_sha256": "a2d0f8e44de00668a95e80d3918ed2f82ec3c750a4c15696b773c589b6b188bc",
+  "step": 100,
+  "target_steps": 100,
+  "microbatch": 80,
+  "loss": 7.765528374910355,
+  "elapsed_seconds": 388.58507599914446,
+  "time": 1791416739.915886,
+  "gpu_peak_gib": 9.45892858505249
+}

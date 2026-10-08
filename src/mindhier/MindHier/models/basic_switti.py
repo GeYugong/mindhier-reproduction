@@ -190,9 +190,12 @@ class CrossAttention(nn.Module):
         # only used during inference
         self.caching, self.cached_k, self.cached_v = False, None, None
         self.context_attn_bias = None
+        self.query_offset = 0
+        self.mask_signature = None
         
     def kv_caching(self, enable: bool):
         self.caching, self.cached_k, self.cached_v = enable, None, None
+        self.query_offset = 0
         
     def forward(self, x, context, num_context=None, freqs_cis=None):
         B, L, C = x.shape
@@ -215,9 +218,11 @@ class CrossAttention(nn.Module):
                 q_start = q_end
             return attn_mask
         
-        if self.context_attn_bias is None:
+        signature = (context_L, num_context, x.device)
+        if self.context_attn_bias is None or self.mask_signature != signature:
             self.context_attn_bias = create_grouped_attention_mask(B, x.device, "1_2_3_4_6_9_13_18_24_32", context_L, num_context)
             self.context_attn_bias = rearrange(self.context_attn_bias, "b j k -> b 1 j k")
+            self.mask_signature = signature
         
         q = self.to_q(x).view(B, L, -1)  # BLD , self.num_heads, self.head_dim)
         if self.qk_norm:
@@ -249,7 +254,11 @@ class CrossAttention(nn.Module):
 
         # if self.context_attn_bias is not None and len(self.context_attn_bias.shape)==3:
         #     self.context_attn_bias = rearrange(self.context_attn_bias, "b j k -> b 1 j k")
+            self.mask_signature = signature
 
+        offset = self.query_offset if self.caching else 0
+        assert offset + L <= self.context_attn_bias.shape[2]
+        mask = self.context_attn_bias[:, :, offset:offset + L, :]
         dropout_p = self.attn_drop if self.training else 0.0
         # print(f'query_shape{q.shape}')
         # print(f'key_shape{k.shape}')
@@ -260,13 +269,15 @@ class CrossAttention(nn.Module):
                 key=k,
                 value=v,
                 scale=self.scale,
-                attn_mask=self.context_attn_bias[:,:,:q.shape[2],:] if self.context_attn_bias.shape[2] != q.shape[2] else self.context_attn_bias,
+                attn_mask=mask,
                 dropout_p=dropout_p,
             )
             .transpose(1, 2)
             .reshape(B, L, C)
         )
 
+        if self.caching:
+            self.query_offset += L
         return self.proj_drop(self.proj(out))
 
 

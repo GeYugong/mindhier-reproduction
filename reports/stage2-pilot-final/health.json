@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "47d38e44b10760220a87ef44744a49d54b787caeda685d9338fb63a5dd65620a",
+  "bytes": 27876370698,
+  "updates": 100,
+  "loss_start": 9.599795460700989,
+  "loss_end": 7.765528374910355,
+  "formal_training": false
+}
