@@ -1,0 +1,37 @@
+[
+  {
+    "path": "AN2-features.npz",
+    "bytes": 23618428,
+    "sha256": "17ce78b44794b664b3d6cab68aa4ace87ef76b676de2c64369e5af66e5a60450"
+  },
+  {
+    "path": "AN5-features.npz",
+    "bytes": 7373692,
+    "sha256": "a6529ffe22122559e6ae503edac6141db26fa3d1637853671171313f67f651d8"
+  },
+  {
+    "path": "CLIP-features.npz",
+    "bytes": 99196,
+    "sha256": "2696557e345d7cd066a293d64c67544691bd2cfddaceeddec8fa46b6b41ebdeb"
+  },
+  {
+    "path": "Eff-features.npz",
+    "bytes": 164732,
+    "sha256": "9f649417c2e4997127bb8d02a0bbc32ca26e7ccb0e0dceb384d19dbdffeba6df"
+  },
+  {
+    "path": "Incep-features.npz",
+    "bytes": 263036,
+    "sha256": "5c5e1b982bacd9358f66d5fdf1ea2d5d6bf902710689d36566cdc23f7fbdf47e"
+  },
+  {
+    "path": "SwAV-features.npz",
+    "bytes": 263036,
+    "sha256": "52430410762a5479a999eeed91ef8aba4c610f27e153e85937cc572b835a6776"
+  },
+  {
+    "path": "status.json",
+    "bytes": 3088,
+    "sha256": "a653a7c8081d68f3c85e65c6232b4df80362f24355044572635ecf12b831d3d1"
+  }
+]

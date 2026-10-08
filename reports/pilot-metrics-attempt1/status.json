@@ -1,0 +1,82 @@
+{
+  "phase": "failed",
+  "started_at": 1791423572.5906854,
+  "pid": 3875448,
+  "formal_result": false,
+  "test_data_used": false,
+  "git_commit": "6bb85ff08482afed4bf0ed15b7c91792af2c2811",
+  "metrics": {
+    "PixCorr": 0.11158943005891193,
+    "SSIM": 0.39309960877936556,
+    "AN2": 0.6541666666666667
+  },
+  "sanity": {
+    "pixels_identity": {
+      "PixCorr": 1.0,
+      "SSIM": 1.0
+    },
+    "pixels_shift": {
+      "PixCorr": -0.09157134249165641,
+      "SSIM": 0.2540240701773221
+    },
+    "AN2": {
+      "identity": 1.0,
+      "shift": 0.4875,
+      "batch_max_error": 5.340576171875e-05
+    }
+  },
+  "weights": [
+    {
+      "name": "alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "source": "/data/matengyu/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth"
+    },
+    {
+      "name": "inception_v3_google-0cc3c7bd.pth",
+      "bytes": 108949747,
+      "sha256": "0cc3c7bd75056d25e46cba549dc184522069b81e9787eff6df84f397bd52a5ef",
+      "source": "/data/matengyu/.cache/torch/hub/checkpoints/inception_v3_google-0cc3c7bd.pth"
+    },
+    {
+      "name": "efficientnet_b1-c27df63c.pth",
+      "bytes": 31600329,
+      "sha256": "c27df63ce6eb17ef8bcea58922fd3a254cba910c720f41ee89d64d99fb7a4ddf",
+      "source": "/data/matengyu/.cache/torch/hub/checkpoints/efficientnet_b1-c27df63c.pth"
+    },
+    {
+      "name": "swav_800ep_pretrain.pth.tar",
+      "bytes": 113703565,
+      "sha256": "029d0b8c2e70bcee3f8beb70cc104ef51585c090224d33fb9c6f51d146cfd1eb",
+      "source": "/data/matengyu/.cache/torch/hub/checkpoints/swav_800ep_pretrain.pth.tar"
+    },
+    {
+      "name": "ViT-L-14.pt",
+      "bytes": 932768134,
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+      "source": "/data/matengyu/.cache/clip/ViT-L-14.pt"
+    }
+  ],
+  "preprocess": "all GT/recons bilinear resize 256 antialias=True; then author metric-specific resize/normalize; FP32 extraction; FP64 correlations",
+  "updated_at": 1791423586.8368018,
+  "sample_ids": [
+    61882,
+    828,
+    67573,
+    16020,
+    40422,
+    51517,
+    62325,
+    50610,
+    55065,
+    37398,
+    18039,
+    67533,
+    21822,
+    35405,
+    21690,
+    28278
+  ],
+  "error": "AssertionError(('AN5', 0.00305938720703125, 18.80337905883789))",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/matengyu/geyugong/mindhier-reproduction/scripts/evaluate_pilot.py\", line 78, in main\n    assert np.allclose(a[name][:4],ref[name],atol=2e-4,rtol=2e-4),(name,error,scale)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('AN5', 0.00305938720703125, 18.80337905883789)\n"
+}

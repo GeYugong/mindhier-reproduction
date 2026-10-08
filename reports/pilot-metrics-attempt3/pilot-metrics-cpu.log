@@ -1,0 +1,10 @@
+/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torchvision/models/feature_extraction.py:175: UserWarning: NOTE: The nodes obtained by tracing the model in eval mode are a subsequence of those obtained in train mode. When choosing nodes for feature extraction, you may need to specify output nodes for train and eval mode separately.
+  warnings.warn(msg + suggestion_msg)
+Traceback (most recent call last):
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/evaluate_pilot.py", line 94, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/evaluate_pilot.py", line 65, in main
+    m=models.resnet50(weights=None);s=torch.load(cache/needed[3],weights_only=True);s={k.replace('module.',''):v for k,v in s.items()};missing,extra=m.load_state_dict(s,strict=False);assert set(missing)<=set(['fc.weight','fc.bias']) and not extra,(missing,extra)
+                                                                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (['fc.weight', 'fc.bias'], ['projection_head.0.weight', 'projection_head.0.bias', 'projection_head.1.weight', 'projection_head.1.bias', 'projection_head.1.running_mean', 'projection_head.1.running_var', 'projection_head.1.num_batches_tracked', 'projection_head.3.weight', 'projection_head.3.bias', 'prototypes.weight'])

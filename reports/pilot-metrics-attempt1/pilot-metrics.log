@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/evaluate_pilot.py", line 91, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/matengyu/geyugong/mindhier-reproduction/scripts/evaluate_pilot.py", line 78, in main
+    assert np.allclose(a[name][:4],ref[name],atol=2e-4,rtol=2e-4),(name,error,scale)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('AN5', 0.00305938720703125, 18.80337905883789)
