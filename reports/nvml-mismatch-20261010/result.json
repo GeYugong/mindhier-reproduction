@@ -1,0 +1,17 @@
+{
+  "time": 1791673416.8810668,
+  "completed_steps": 1848,
+  "checkpoint": {
+    "step": 1800,
+    "bytes": 27876378698,
+    "time": 1791667238.2673213,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "metrics_contiguous_finite": true,
+  "samples": 147840,
+  "nvml_exit": 18,
+  "nvml_output": "Failed to initialize NVML: Driver/library version mismatch\nNVML library version: 595.99\n",
+  "kernel_driver": "NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  595.84  Release Build  (dvs-builder@U22-I3-AM25-26-2)  Wed Jun 10 21:06:37 UTC 2026\nGCC version:  gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) \n",
+  "raw_evidence": "runs/pipeline/gpu-status-failure-20261010T230311Z",
+  "median_seconds_last10": 128.104390632594
+}
