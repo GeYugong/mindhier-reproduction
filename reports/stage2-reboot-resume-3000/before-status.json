@@ -1,0 +1,22 @@
+{
+  "phase": "formal_training",
+  "pid": 3908577,
+  "started_at": 1791428112.255619,
+  "formal_training": true,
+  "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "completed_steps": 3047,
+  "target_steps": 9000,
+  "microbatch_size": 4,
+  "effective_batch": 80,
+  "updated_at": 1791820700.2461195,
+  "active_step": 3048,
+  "completed_micro_samples": 60,
+  "step": 3047,
+  "loss": 5.89511399269104,
+  "lr": 7.555707783855196e-05,
+  "grad_norm": 0.4582875967025757,
+  "seconds": 128.39898967696354,
+  "time": 1791820611.545638,
+  "peak_gpu_gib": 12.63662338256836,
+  "next_sample": 243760
+}

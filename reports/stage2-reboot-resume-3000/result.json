@@ -1,0 +1,14 @@
+{
+  "interrupted_completed_steps": 3047,
+  "incomplete_active_step": 3048,
+  "checkpoint_step": 3000,
+  "checkpoint_sha256": "3a1f8c07efd3413521aeb9a88d9745cb75eab02fa2bf094ac46bf54473565ff1",
+  "checkpoint_bytes": 27876378698,
+  "raw_evidence": "runs/pipeline/formal-interruption-20261012T164933Z",
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "source_worktree": "runs/recovery-source-06e95b8",
+  "supervisor_pid": 50300,
+  "trainer_pid": 50309,
+  "recovery_status": "verified; formal training resumed",
+  "restored_output_max_error": 0.0
+}
