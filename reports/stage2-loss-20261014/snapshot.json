@@ -1,0 +1,34 @@
+{
+  "captured_at": 1791989760.272365,
+  "status": {
+    "phase": "formal_training",
+    "pid": 50309,
+    "started_at": 1791823985.5028586,
+    "formal_training": true,
+    "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "completed_steps": 3937,
+    "target_steps": 9000,
+    "microbatch_size": 4,
+    "effective_batch": 80,
+    "updated_at": 1791989754.5142426,
+    "resume_verified": true,
+    "restored_output_max_error": 0.0,
+    "restored_step": 3000,
+    "active_step": 3938,
+    "completed_micro_samples": 68,
+    "step": 3937,
+    "loss": 5.844247579574585,
+    "lr": 6.113721154888038e-05,
+    "grad_norm": 0.46914994716644287,
+    "seconds": 137.33264542001416,
+    "time": 1791989645.7131407,
+    "peak_gpu_gib": 12.637109756469727,
+    "next_sample": 314960
+  },
+  "checkpoint": {
+    "step": 3900,
+    "bytes": 27876378698,
+    "time": 1791984564.174596,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  }
+}

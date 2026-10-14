@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "review_id": "001500-5a526f1214230d80",
+  "evaluated_at": 1791989682.3549073,
+  "run": "s01-stage2-paper-seed42",
+  "monitor_commit": "70b1e7ee8c18c9ed0389ad079c76863eb3acef40",
+  "policy": {
+    "version": 1,
+    "window_steps": [
+      100,
+      500
+    ],
+    "confirmation_steps": 500,
+    "consecutive_comparisons": 2,
+    "worsening_relative": 0.01,
+    "plateau_absolute_relative": 0.001,
+    "scope": "operational training-review triggers, not validated early stopping or generalization criteria",
+    "automatic_training_mutation": false
+  },
+  "checkpoint": {
+    "step": 1500,
+    "path": "runs/s01-stage2-paper-seed42/checkpoint-step-1500.pt",
+    "inode": 196618855,
+    "bytes": 27876378698,
+    "mtime_ns": 1791629029638662005,
+    "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57",
+    "reference_logits_sha256": "5a526f1214230d80db1e5e860e94574d2250f162aaf182c7f6f677e30e92125a",
+    "full_checkpoint_sha256_verified": false,
+    "evaluation_mode": "CPU mmap of saved reference logits; no model restore"
+  },
+  "reference_target_sha256": "eced1d69e57175e345fad082df105e35937899a5e81ca29df271f918d61dbe86",
+  "reference_sample": {
+    "position": 0,
+    "epoch": 0,
+    "nsd_id": 58173,
+    "beta_row": 5017,
+    "top": 48,
+    "left": 20,
+    "unconditional": false
+  },
+  "training": {
+    "evaluated_through_step": 1500,
+    "windows": {
+      "100": {
+        "previous": {
+          "first_step": 1301,
+          "last_step": 1400,
+          "count": 100,
+          "loss_mean": 6.0834781739711765,
+          "loss_std": 0.039992353825828345,
+          "lr_last": 9.488569637623289e-05
+        },
+        "latest": {
+          "first_step": 1401,
+          "last_step": 1500,
+          "count": 100,
+          "loss_mean": 6.069359701156616,
+          "loss_std": 0.047838486463336605,
+          "lr_last": 9.40846277171782e-05
+        },
+        "relative_improvement": 0.0023207895895752716
+      },
+      "500": {
+        "previous": {
+          "first_step": 501,
+          "last_step": 1000,
+          "count": 500,
+          "loss_mean": 6.163316126155853,
+          "loss_std": 0.053095862912097655,
+          "lr_last": 9.752791443168791e-05
+        },
+        "latest": {
+          "first_step": 1001,
+          "last_step": 1500,
+          "count": 500,
+          "loss_mean": 6.0942734143257145,
+          "loss_std": 0.04762960542618778,
+          "lr_last": 9.40846277171782e-05
+        },
+        "relative_improvement": 0.011202201934302103
+      }
+    },
+    "complete_500_step_blocks": [
+      {
+        "first_step": 1,
+        "last_step": 500,
+        "count": 500,
+        "loss_mean": 6.559524023103714,
+        "loss_std": 0.6846080054792302,
+        "lr_last": 9.950974713683059e-05
+      },
+      {
+        "first_step": 501,
+        "last_step": 1000,
+        "count": 500,
+        "loss_mean": 6.163316126155853,
+        "loss_std": 0.053095862912097655,
+        "lr_last": 9.752791443168791e-05
+      },
+      {
+        "first_step": 1001,
+        "last_step": 1500,
+        "count": 500,
+        "loss_mean": 6.0942734143257145,
+        "loss_std": 0.04762960542618778,
+        "lr_last": 9.40846277171782e-05
+      }
+    ],
+    "block_relative_improvements": [
+      0.06040192787652769,
+      0.011202201934302103
+    ],
+    "review_flags": [],
+    "last_loss": 6.043099594116211,
+    "last_lr": 9.40846277171782e-05,
+    "last_grad_norm": 0.492828369140625,
+    "all_checked_values_finite": true
+  },
+  "reference": {
+    "n_images": 1,
+    "tokens": 2240,
+    "split": "training",
+    "teacher_forced": true,
+    "ce": 6.387798309326172,
+    "top1_accuracy": 0.03482142835855484,
+    "mean_predictive_entropy": 6.381738662719727,
+    "per_scale": [
+      {
+        "patch_size": 1,
+        "tokens": 1,
+        "ce": 0.5761743187904358,
+        "top1_accuracy": 1.0
+      },
+      {
+        "patch_size": 2,
+        "tokens": 4,
+        "ce": 1.1101930141448975,
+        "top1_accuracy": 0.75
+      },
+      {
+        "patch_size": 3,
+        "tokens": 9,
+        "ce": 2.8398003578186035,
+        "top1_accuracy": 0.3333333432674408
+      },
+      {
+        "patch_size": 4,
+        "tokens": 16,
+        "ce": 3.9875807762145996,
+        "top1_accuracy": 0.125
+      },
+      {
+        "patch_size": 6,
+        "tokens": 36,
+        "ce": 5.105705261230469,
+        "top1_accuracy": 0.1111111119389534
+      },
+      {
+        "patch_size": 9,
+        "tokens": 81,
+        "ce": 6.089288711547852,
+        "top1_accuracy": 0.02469135820865631
+      },
+      {
+        "patch_size": 13,
+        "tokens": 169,
+        "ce": 6.512026309967041,
+        "top1_accuracy": 0.03550295904278755
+      },
+      {
+        "patch_size": 18,
+        "tokens": 324,
+        "ce": 6.64274787902832,
+        "top1_accuracy": 0.021604938432574272
+      },
+      {
+        "patch_size": 24,
+        "tokens": 576,
+        "ce": 6.695586681365967,
+        "top1_accuracy": 0.0225694440305233
+      },
+      {
+        "patch_size": 32,
+        "tokens": 1024,
+        "ce": 6.277161598205566,
+        "top1_accuracy": 0.0361328125
+      }
+    ],
+    "limitation": "one already-seen fixed training crop; no independent validation, free-running reconstruction or eight-metric conclusion"
+  },
+  "decision": {
+    "action": "continue",
+    "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+    "review_flags": [],
+    "previous_checkpoint_comparison": {
+      "previous_step": 1000,
+      "current_step": 1500,
+      "relative_ce_improvement": 0.008409528049833472,
+      "top1_accuracy_change": 0.0008928552269935608
+    },
+    "reference_milestone_steps": [
+      500,
+      1000,
+      1500
+    ],
+    "reference_milestone_relative_improvements": [
+      0.010180060577020296,
+      0.008409528049833472
+    ],
+    "reference_confirmation_available": true,
+    "auto_stop": false,
+    "generalization_assessed": false
+  },
+  "monitor_source_sha256": "0358e006c454924bd64c0a8da278f2d9613a213eb090588226c453526f4ae4e6",
+  "monitor_worktree_dirty": true,
+  "trigger": "initial_backfill_or_bootstrap"
+}

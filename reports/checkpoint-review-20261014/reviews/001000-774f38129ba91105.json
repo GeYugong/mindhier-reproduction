@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "review_id": "001000-774f38129ba91105",
+  "evaluated_at": 1791989681.445645,
+  "run": "s01-stage2-paper-seed42",
+  "monitor_commit": "70b1e7ee8c18c9ed0389ad079c76863eb3acef40",
+  "policy": {
+    "version": 1,
+    "window_steps": [
+      100,
+      500
+    ],
+    "confirmation_steps": 500,
+    "consecutive_comparisons": 2,
+    "worsening_relative": 0.01,
+    "plateau_absolute_relative": 0.001,
+    "scope": "operational training-review triggers, not validated early stopping or generalization criteria",
+    "automatic_training_mutation": false
+  },
+  "checkpoint": {
+    "step": 1000,
+    "path": "runs/s01-stage2-paper-seed42/checkpoint-step-1000.pt",
+    "inode": 196618853,
+    "bytes": 27876378698,
+    "mtime_ns": 1791567585206504416,
+    "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57",
+    "reference_logits_sha256": "774f38129ba91105abd6faf5ccbee6051da57b900b59e878c73db90fa4503579",
+    "full_checkpoint_sha256_verified": false,
+    "evaluation_mode": "CPU mmap of saved reference logits; no model restore"
+  },
+  "reference_target_sha256": "eced1d69e57175e345fad082df105e35937899a5e81ca29df271f918d61dbe86",
+  "reference_sample": {
+    "position": 0,
+    "epoch": 0,
+    "nsd_id": 58173,
+    "beta_row": 5017,
+    "top": 48,
+    "left": 20,
+    "unconditional": false
+  },
+  "training": {
+    "evaluated_through_step": 1000,
+    "windows": {
+      "100": {
+        "previous": {
+          "first_step": 801,
+          "last_step": 900,
+          "count": 100,
+          "loss_mean": 6.154508008480072,
+          "loss_std": 0.04717574537393762,
+          "lr_last": 9.804383851906153e-05
+        },
+        "latest": {
+          "first_step": 901,
+          "last_step": 1000,
+          "count": 100,
+          "loss_mean": 6.132756695508957,
+          "loss_std": 0.05072955629968435,
+          "lr_last": 9.752791443168791e-05
+        },
+        "relative_improvement": 0.003534208248838825
+      },
+      "500": {
+        "previous": {
+          "first_step": 1,
+          "last_step": 500,
+          "count": 500,
+          "loss_mean": 6.559524023103714,
+          "loss_std": 0.6846080054792302,
+          "lr_last": 9.950974713683059e-05
+        },
+        "latest": {
+          "first_step": 501,
+          "last_step": 1000,
+          "count": 500,
+          "loss_mean": 6.163316126155853,
+          "loss_std": 0.053095862912097655,
+          "lr_last": 9.752791443168791e-05
+        },
+        "relative_improvement": 0.06040192787652769
+      }
+    },
+    "complete_500_step_blocks": [
+      {
+        "first_step": 1,
+        "last_step": 500,
+        "count": 500,
+        "loss_mean": 6.559524023103714,
+        "loss_std": 0.6846080054792302,
+        "lr_last": 9.950974713683059e-05
+      },
+      {
+        "first_step": 501,
+        "last_step": 1000,
+        "count": 500,
+        "loss_mean": 6.163316126155853,
+        "loss_std": 0.053095862912097655,
+        "lr_last": 9.752791443168791e-05
+      }
+    ],
+    "block_relative_improvements": [
+      0.06040192787652769
+    ],
+    "review_flags": [],
+    "last_loss": 6.203527903556823,
+    "last_lr": 9.752791443168791e-05,
+    "last_grad_norm": 0.45585569739341736,
+    "all_checked_values_finite": true
+  },
+  "reference": {
+    "n_images": 1,
+    "tokens": 2240,
+    "split": "training",
+    "teacher_forced": true,
+    "ce": 6.441972255706787,
+    "top1_accuracy": 0.03392857313156128,
+    "mean_predictive_entropy": 6.319364547729492,
+    "per_scale": [
+      {
+        "patch_size": 1,
+        "tokens": 1,
+        "ce": 2.4964237213134766,
+        "top1_accuracy": 0.0
+      },
+      {
+        "patch_size": 2,
+        "tokens": 4,
+        "ce": 1.6517850160598755,
+        "top1_accuracy": 0.5
+      },
+      {
+        "patch_size": 3,
+        "tokens": 9,
+        "ce": 3.1625916957855225,
+        "top1_accuracy": 0.2222222238779068
+      },
+      {
+        "patch_size": 4,
+        "tokens": 16,
+        "ce": 4.4436516761779785,
+        "top1_accuracy": 0.0
+      },
+      {
+        "patch_size": 6,
+        "tokens": 36,
+        "ce": 5.498669147491455,
+        "top1_accuracy": 0.1388888955116272
+      },
+      {
+        "patch_size": 9,
+        "tokens": 81,
+        "ce": 6.2939229011535645,
+        "top1_accuracy": 0.03703703731298447
+      },
+      {
+        "patch_size": 13,
+        "tokens": 169,
+        "ce": 6.639543056488037,
+        "top1_accuracy": 0.03550295904278755
+      },
+      {
+        "patch_size": 18,
+        "tokens": 324,
+        "ce": 6.748773097991943,
+        "top1_accuracy": 0.02777777798473835
+      },
+      {
+        "patch_size": 24,
+        "tokens": 576,
+        "ce": 6.703770160675049,
+        "top1_accuracy": 0.015625
+      },
+      {
+        "patch_size": 32,
+        "tokens": 1024,
+        "ce": 6.292515754699707,
+        "top1_accuracy": 0.0390625
+      }
+    ],
+    "limitation": "one already-seen fixed training crop; no independent validation, free-running reconstruction or eight-metric conclusion"
+  },
+  "decision": {
+    "action": "continue",
+    "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+    "review_flags": [],
+    "previous_checkpoint_comparison": {
+      "previous_step": 500,
+      "current_step": 1000,
+      "relative_ce_improvement": 0.010180060577020296,
+      "top1_accuracy_change": 0.00178571417927742
+    },
+    "reference_milestone_steps": [
+      500,
+      1000
+    ],
+    "reference_milestone_relative_improvements": [
+      0.010180060577020296
+    ],
+    "reference_confirmation_available": false,
+    "auto_stop": false,
+    "generalization_assessed": false
+  },
+  "monitor_source_sha256": "0358e006c454924bd64c0a8da278f2d9613a213eb090588226c453526f4ae4e6",
+  "monitor_worktree_dirty": true,
+  "trigger": "initial_backfill_or_bootstrap"
+}

@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "review_id": "002000-ca248b20132b0f22",
+  "evaluated_at": 1791989683.2942328,
+  "run": "s01-stage2-paper-seed42",
+  "monitor_commit": "70b1e7ee8c18c9ed0389ad079c76863eb3acef40",
+  "policy": {
+    "version": 1,
+    "window_steps": [
+      100,
+      500
+    ],
+    "confirmation_steps": 500,
+    "consecutive_comparisons": 2,
+    "worsening_relative": 0.01,
+    "plateau_absolute_relative": 0.001,
+    "scope": "operational training-review triggers, not validated early stopping or generalization criteria",
+    "automatic_training_mutation": false
+  },
+  "checkpoint": {
+    "step": 2000,
+    "path": "runs/s01-stage2-paper-seed42/checkpoint-step-2000.pt",
+    "inode": 196618883,
+    "bytes": 27876378698,
+    "mtime_ns": 1791693271996551754,
+    "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57",
+    "reference_logits_sha256": "ca248b20132b0f22df36024bba52de640b6dd0b118c8bd3c744e1c2faaa86ac1",
+    "full_checkpoint_sha256_verified": false,
+    "evaluation_mode": "CPU mmap of saved reference logits; no model restore"
+  },
+  "reference_target_sha256": "eced1d69e57175e345fad082df105e35937899a5e81ca29df271f918d61dbe86",
+  "reference_sample": {
+    "position": 0,
+    "epoch": 0,
+    "nsd_id": 58173,
+    "beta_row": 5017,
+    "top": 48,
+    "left": 20,
+    "unconditional": false
+  },
+  "training": {
+    "evaluated_through_step": 2000,
+    "windows": {
+      "100": {
+        "previous": {
+          "first_step": 1801,
+          "last_step": 1900,
+          "count": 100,
+          "loss_mean": 6.034189202547074,
+          "loss_std": 0.041373355320661144,
+          "lr_last": 9.034821060927183e-05
+        },
+        "latest": {
+          "first_step": 1901,
+          "last_step": 2000,
+          "count": 100,
+          "loss_mean": 6.027450235366821,
+          "loss_std": 0.0489539958708788,
+          "lr_last": 8.928689163586602e-05
+        },
+        "relative_improvement": 0.0011167974609427428
+      },
+      "500": {
+        "previous": {
+          "first_step": 1001,
+          "last_step": 1500,
+          "count": 500,
+          "loss_mean": 6.0942734143257145,
+          "loss_std": 0.04762960542618778,
+          "lr_last": 9.40846277171782e-05
+        },
+        "latest": {
+          "first_step": 1501,
+          "last_step": 2000,
+          "count": 500,
+          "loss_mean": 6.040964793205261,
+          "loss_std": 0.04944771876686769,
+          "lr_last": 8.928689163586602e-05
+        },
+        "relative_improvement": 0.008747330074679854
+      }
+    },
+    "complete_500_step_blocks": [
+      {
+        "first_step": 1,
+        "last_step": 500,
+        "count": 500,
+        "loss_mean": 6.559524023103714,
+        "loss_std": 0.6846080054792302,
+        "lr_last": 9.950974713683059e-05
+      },
+      {
+        "first_step": 501,
+        "last_step": 1000,
+        "count": 500,
+        "loss_mean": 6.163316126155853,
+        "loss_std": 0.053095862912097655,
+        "lr_last": 9.752791443168791e-05
+      },
+      {
+        "first_step": 1001,
+        "last_step": 1500,
+        "count": 500,
+        "loss_mean": 6.0942734143257145,
+        "loss_std": 0.04762960542618778,
+        "lr_last": 9.40846277171782e-05
+      },
+      {
+        "first_step": 1501,
+        "last_step": 2000,
+        "count": 500,
+        "loss_mean": 6.040964793205261,
+        "loss_std": 0.04944771876686769,
+        "lr_last": 8.928689163586602e-05
+      }
+    ],
+    "block_relative_improvements": [
+      0.06040192787652769,
+      0.011202201934302103,
+      0.008747330074679854
+    ],
+    "review_flags": [],
+    "last_loss": 6.020419311523438,
+    "last_lr": 8.928689163586602e-05,
+    "last_grad_norm": 0.46420514583587646,
+    "all_checked_values_finite": true
+  },
+  "reference": {
+    "n_images": 1,
+    "tokens": 2240,
+    "split": "training",
+    "teacher_forced": true,
+    "ce": 6.388873100280762,
+    "top1_accuracy": 0.03660714253783226,
+    "mean_predictive_entropy": 6.350400924682617,
+    "per_scale": [
+      {
+        "patch_size": 1,
+        "tokens": 1,
+        "ce": 1.1306672096252441,
+        "top1_accuracy": 1.0
+      },
+      {
+        "patch_size": 2,
+        "tokens": 4,
+        "ce": 0.9186175465583801,
+        "top1_accuracy": 0.75
+      },
+      {
+        "patch_size": 3,
+        "tokens": 9,
+        "ce": 2.8647048473358154,
+        "top1_accuracy": 0.3333333432674408
+      },
+      {
+        "patch_size": 4,
+        "tokens": 16,
+        "ce": 3.904580593109131,
+        "top1_accuracy": 0.125
+      },
+      {
+        "patch_size": 6,
+        "tokens": 36,
+        "ce": 5.139830112457275,
+        "top1_accuracy": 0.1666666716337204
+      },
+      {
+        "patch_size": 9,
+        "tokens": 81,
+        "ce": 6.064982891082764,
+        "top1_accuracy": 0.03703703731298447
+      },
+      {
+        "patch_size": 13,
+        "tokens": 169,
+        "ce": 6.458846569061279,
+        "top1_accuracy": 0.041420117020606995
+      },
+      {
+        "patch_size": 18,
+        "tokens": 324,
+        "ce": 6.671448707580566,
+        "top1_accuracy": 0.02469135820865631
+      },
+      {
+        "patch_size": 24,
+        "tokens": 576,
+        "ce": 6.700937747955322,
+        "top1_accuracy": 0.0173611119389534
+      },
+      {
+        "patch_size": 32,
+        "tokens": 1024,
+        "ce": 6.278205394744873,
+        "top1_accuracy": 0.0380859375
+      }
+    ],
+    "limitation": "one already-seen fixed training crop; no independent validation, free-running reconstruction or eight-metric conclusion"
+  },
+  "decision": {
+    "action": "continue",
+    "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+    "review_flags": [],
+    "previous_checkpoint_comparison": {
+      "previous_step": 1500,
+      "current_step": 2000,
+      "relative_ce_improvement": -0.00016825687076259927,
+      "top1_accuracy_change": 0.00178571417927742
+    },
+    "reference_milestone_steps": [
+      1000,
+      1500,
+      2000
+    ],
+    "reference_milestone_relative_improvements": [
+      0.008409528049833472,
+      -0.00016825687076259927
+    ],
+    "reference_confirmation_available": true,
+    "auto_stop": false,
+    "generalization_assessed": false
+  },
+  "monitor_source_sha256": "0358e006c454924bd64c0a8da278f2d9613a213eb090588226c453526f4ae4e6",
+  "monitor_worktree_dirty": true,
+  "trigger": "initial_backfill_or_bootstrap"
+}

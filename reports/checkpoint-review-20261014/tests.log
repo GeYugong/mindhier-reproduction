@@ -1,0 +1,10 @@
+test_confirmed_deterioration_and_single_spike (test_checkpoint_review.MonitorTests.test_confirmed_deterioration_and_single_spike) ... ok
+test_missing_or_duplicate_metrics_fail_closed (test_checkpoint_review.MonitorTests.test_missing_or_duplicate_metrics_fail_closed) ... ok
+test_numeric_reference_metrics (test_checkpoint_review.MonitorTests.test_numeric_reference_metrics) ... ok
+test_plateau_and_gaps (test_checkpoint_review.MonitorTests.test_plateau_and_gaps) ... ok
+test_truncated_tail_and_boundary (test_checkpoint_review.MonitorTests.test_truncated_tail_and_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.006s
+
+OK

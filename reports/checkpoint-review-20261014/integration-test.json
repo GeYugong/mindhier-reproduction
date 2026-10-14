@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "synthetic_fixture": "runs/checkpoint-review-fixture-1791989915733346882",
+  "detected_steps": [
+    100,
+    200
+  ],
+  "duplicate_launch_rejected": true,
+  "same_checkpoint_not_duplicated": true,
+  "reports": 2,
+  "real_training_untouched": true
+}

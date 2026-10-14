@@ -1,0 +1,58 @@
+[
+  {
+    "step": 500,
+    "review_id": "000500-79dd26bade9a7e39",
+    "reference_ce": 6.50822639465332,
+    "reference_top1": 0.03214285895228386,
+    "action": "observe"
+  },
+  {
+    "step": 1000,
+    "review_id": "001000-774f38129ba91105",
+    "reference_ce": 6.441972255706787,
+    "reference_top1": 0.03392857313156128,
+    "action": "continue"
+  },
+  {
+    "step": 1500,
+    "review_id": "001500-5a526f1214230d80",
+    "reference_ce": 6.387798309326172,
+    "reference_top1": 0.03482142835855484,
+    "action": "continue"
+  },
+  {
+    "step": 2000,
+    "review_id": "002000-ca248b20132b0f22",
+    "reference_ce": 6.388873100280762,
+    "reference_top1": 0.03660714253783226,
+    "action": "continue"
+  },
+  {
+    "step": 2500,
+    "review_id": "002500-aedac91a5d4ab121",
+    "reference_ce": 6.383105278015137,
+    "reference_top1": 0.03839285671710968,
+    "action": "review_signal_disagreement"
+  },
+  {
+    "step": 3000,
+    "review_id": "003000-0522da56bc6e6ee3",
+    "reference_ce": 6.324777603149414,
+    "reference_top1": 0.03839285671710968,
+    "action": "continue"
+  },
+  {
+    "step": 3500,
+    "review_id": "003500-a108773775cb7cb4",
+    "reference_ce": 6.264869689941406,
+    "reference_top1": 0.03973214328289032,
+    "action": "continue"
+  },
+  {
+    "step": 3900,
+    "review_id": "003900-b1afed4f41e43ab5",
+    "reference_ce": 6.253749847412109,
+    "reference_top1": 0.04419642686843872,
+    "action": "continue"
+  }
+]
