@@ -1,0 +1,264 @@
+{
+  "checked_at": "2026-10-14T15:27:12.443444+08:00",
+  "status": {
+    "phase": "formal_training",
+    "pid": 50309,
+    "started_at": 1791823985.5028586,
+    "formal_training": true,
+    "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "completed_steps": 3756,
+    "target_steps": 9000,
+    "microbatch_size": 4,
+    "effective_batch": 80,
+    "updated_at": 1791962827.782846,
+    "resume_verified": true,
+    "restored_output_max_error": 0.0,
+    "restored_step": 3000,
+    "active_step": 3757,
+    "completed_micro_samples": 32,
+    "step": 3756,
+    "loss": 5.841652512550354,
+    "lr": 6.42024582469089e-05,
+    "grad_norm": 0.4601915180683136,
+    "seconds": 149.39595304601244,
+    "time": 1791962772.2807097,
+    "peak_gpu_gib": 12.637109756469727,
+    "next_sample": 300480
+  },
+  "checkpoint": {
+    "step": 3700,
+    "bytes": 27876378698,
+    "time": 1791954076.2257986,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "actual_config": {
+    "subject": 1,
+    "seed": 42,
+    "updates": 9000,
+    "effective_batch": 80,
+    "initialization": "fresh Switti with audited conditioning adaptation; never pilot weights",
+    "brain_checkpoint": "stage1 epoch 300",
+    "brain_encoder_frozen": true,
+    "context_order": "reverse",
+    "scale_to_brain_layer": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "clip_layers_in_brain_order": [
+      12,
+      16,
+      20,
+      24
+    ],
+    "patch_nums": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      9,
+      13,
+      18,
+      24,
+      32
+    ],
+    "crop": {
+      "resize_shorter": 576,
+      "interpolation": "PIL LANCZOS",
+      "random_crop": [
+        512,
+        512
+      ],
+      "horizontal_flip": false
+    },
+    "optimizer": {
+      "type": "AdamW",
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "weight_decay": 0.0,
+      "gradient_clip_norm": 1.0
+    },
+    "schedule": {
+      "type": "linear warmup then cosine",
+      "warmup_updates": 100,
+      "initial_lr_ratio": 0.005,
+      "final_lr_ratio": 0.01,
+      "provenance": "warmup duration and final ratio are explicit reproduction choices, not specified in paper"
+    },
+    "unconditional_probability": 0.1,
+    "unconditional_input": "zero beta passed through frozen brain encoder",
+    "vq_noise_std": null,
+    "sampling": "seeded epoch permutations of full 27000 train trials; record exposure position",
+    "loss": "mean cross entropy over batch and all 2240 tokens",
+    "checkpoint_format": "fsdp_world1_cpu_flat_v1",
+    "microbatch": 4,
+    "status": "scientific protocol frozen; formal runner and runtime validation pending",
+    "validation": false
+  },
+  "stage1_config": {
+    "subject": 1,
+    "seed": 42,
+    "epochs": 300,
+    "global_batch": 512,
+    "microbatch": 8,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "warmup_epochs": 2,
+    "min_lr_ratio": 0.01,
+    "mse_scale": 200000,
+    "softclip_temperature": 0.005,
+    "precision": "bf16",
+    "clip_target_precision": "float32",
+    "checkpoint_epochs": 10,
+    "device": "cuda:0",
+    "physical_gpu": "1",
+    "gradient_method": "RNG-preserving full-batch gradient cache",
+    "selection": "fixed final epoch, no test-based selection",
+    "warmup_provenance": "2 epochs inherited from author OneCycle warmup fraction; cosine minimum 0.01 is an explicit reproduction setting, not specified by the paper"
+  },
+  "data_audit": {
+    "subject": 1,
+    "beta_shape": [
+      30000,
+      15724
+    ],
+    "train_trials": 27000,
+    "train_unique_images": 9000,
+    "test_trials": 3000,
+    "test_unique_images": 1000,
+    "overlap_images": 0,
+    "repetition_histogram": {
+      "3": 1000
+    },
+    "train_manifest_sha256": "91d08adfc4545bea219993325ad74d270e9f76ec9e02d50d463cae124db6d3fa",
+    "test_manifest_sha256": "f422d7065b01ffd5763113d4a22711c9c14db32ae4dddeb5cbf0869adda259ae",
+    "nsd_id_indexing": "zero-based",
+    "beta_row_indexing": "zero-based"
+  },
+  "metrics_count": 3756,
+  "first_metric": {
+    "step": 1,
+    "loss": 9.65914568901062,
+    "lr": 5.000000000000001e-07,
+    "grad_norm": 15.456134796142578,
+    "seconds": 106.18502886174247,
+    "time": 1791428299.9462407,
+    "peak_gpu_gib": 13.998557567596436,
+    "next_sample": 80
+  },
+  "last_metric": {
+    "step": 3756,
+    "loss": 5.841652512550354,
+    "lr": 6.42024582469089e-05,
+    "grad_norm": 0.4601915180683136,
+    "seconds": 149.39595304601244,
+    "time": 1791962772.2807097,
+    "peak_gpu_gib": 12.637109756469727,
+    "next_sample": 300480
+  },
+  "recent100_mean_seconds": 151.2112753641374,
+  "recent10_median_seconds": 149.33349217100476,
+  "recent100_mean_loss": 5.834525855779648,
+  "remaining_training_days_at_recent100_rate": 9.17768435196223,
+  "nonfinite_metric_rows": 0,
+  "python": "3.11.16 (main, Aug 27 2026, 14:44:21) [GCC 14.3.0]",
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "numpy": "1.26.4",
+    "transformers": "4.44.2",
+    "safetensors": "0.6.2"
+  },
+  "disk_free_bytes": 5301740466176,
+  "gpu": {
+    "exit_code": 0,
+    "stdout": "index, name, driver_version, memory.total [MiB], memory.used [MiB], utilization.gpu [%], temperature.gpu\n0, NVIDIA GeForce RTX 5090, 595.99.02, 32607 MiB, 25149 MiB, 59 %, 65\n1, NVIDIA GeForce RTX 5090, 595.99.02, 32607 MiB, 29125 MiB, 100 %, 64\n",
+    "stderr": ""
+  },
+  "gpu_processes": {
+    "exit_code": 0,
+    "stdout": "gpu_uuid, pid, used_gpu_memory [MiB]\nGPU-3bbc128e-9d16-a851-f900-ef1ba565565a, 50309, 21914 MiB\nGPU-3bbc128e-9d16-a851-f900-ef1ba565565a, 82321, 3140 MiB\nGPU-8576fab9-b2f2-0693-5a93-5437992708fb, 28783, 8112 MiB\nGPU-8576fab9-b2f2-0693-5a93-5437992708fb, 62793, 9826 MiB\nGPU-8576fab9-b2f2-0693-5a93-5437992708fb, 700357, 3668 MiB\nGPU-8576fab9-b2f2-0693-5a93-5437992708fb, 1066851, 7460 MiB\n",
+    "stderr": ""
+  },
+  "processes": {
+    "exit_code": 0,
+    "stdout": "    PID    PPID     ELAPSED STAT COMMAND\n  50300       1  1-14:36:25 Ss   /data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python /data/matengyu/geyugong/mindhier-reproduction/runs/stage2-formal-supervisor/resume-3000.py\n  50309   50300  1-14:36:24 Rl   /data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/.envs/mindhier/bin/python -u scripts/train_stage2_formal.py --run s01-stage2-paper-seed42 --steps 9000 --microbatch 4 --resume\n",
+    "stderr": ""
+  },
+  "memory": {
+    "exit_code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\n内存：   134374969344 105352409088 12334084096 42952753152 60877701120 29022560256\n交换：    8589930496  8589762560      167936\n",
+    "stderr": ""
+  },
+  "repository_head": {
+    "exit_code": 0,
+    "stdout": "cc5536d81303c2d3078db556c699da2170cfbe27\n",
+    "stderr": ""
+  },
+  "source_head": {
+    "exit_code": 0,
+    "stdout": "06e95b83a14b07fef51ebdb4c299b6df9914bb34\n",
+    "stderr": ""
+  },
+  "status.json": {
+    "content": "{\n  \"phase\": \"formal_training\",\n  \"pid\": 50309,\n  \"started_at\": 1791823985.5028586,\n  \"formal_training\": true,\n  \"git_commit\": \"06e95b83a14b07fef51ebdb4c299b6df9914bb34\",\n  \"completed_steps\": 3756,\n  \"target_steps\": 9000,\n  \"microbatch_size\": 4,\n  \"effective_batch\": 80,\n  \"updated_at\": 1791962827.782846,\n  \"resume_verified\": true,\n  \"restored_output_max_error\": 0.0,\n  \"restored_step\": 3000,\n  \"active_step\": 3757,\n  \"completed_micro_samples\": 32,\n  \"step\": 3756,\n  \"loss\": 5.841652512550354,\n  \"lr\": 6.42024582469089e-05,\n  \"grad_norm\": 0.4601915180683136,\n  \"seconds\": 149.39595304601244,\n  \"time\": 1791962772.2807097,\n  \"peak_gpu_gib\": 12.637109756469727,\n  \"next_sample\": 300480\n}",
+    "bytes": 686,
+    "mtime": 1791962827.7836008
+  },
+  "config.json": {
+    "content": "{\n  \"subject\": 1,\n  \"seed\": 42,\n  \"updates\": 9000,\n  \"effective_batch\": 80,\n  \"initialization\": \"fresh Switti with audited conditioning adaptation; never pilot weights\",\n  \"brain_checkpoint\": \"stage1 epoch 300\",\n  \"brain_encoder_frozen\": true,\n  \"context_order\": \"reverse\",\n  \"scale_to_brain_layer\": [\n    4,\n    4,\n    4,\n    3,\n    3,\n    2,\n    2,\n    2,\n    1,\n    1\n  ],\n  \"clip_layers_in_brain_order\": [\n    12,\n    16,\n    20,\n    24\n  ],\n  \"patch_nums\": [\n    1,\n    2,\n    3,\n    4,\n    6,\n    9,\n    13,\n    18,\n    24,\n    32\n  ],\n  \"crop\": {\n    \"resize_shorter\": 576,\n    \"interpolation\": \"PIL LANCZOS\",\n    \"random_crop\": [\n      512,\n      512\n    ],\n    \"horizontal_flip\": false\n  },\n  \"optimizer\": {\n    \"type\": \"AdamW\",\n    \"lr\": 0.0001,\n    \"betas\": [\n      0.9,\n      0.95\n    ],\n    \"weight_decay\": 0.0,\n    \"gradient_clip_norm\": 1.0\n  },\n  \"schedule\": {\n    \"type\": \"linear warmup then cosine\",\n    \"warmup_updates\": 100,\n    \"initial_lr_ratio\": 0.005,\n    \"final_lr_ratio\": 0.01,\n    \"provenance\": \"warmup duration and final ratio are explicit reproduction choices, not specified in paper\"\n  },\n  \"unconditional_probability\": 0.1,\n  \"unconditional_input\": \"zero beta passed through frozen brain encoder\",\n  \"vq_noise_std\": null,\n  \"sampling\": \"seeded epoch permutations of full 27000 train trials; record exposure position\",\n  \"loss\": \"mean cross entropy over batch and all 2240 tokens\",\n  \"checkpoint_format\": \"fsdp_world1_cpu_flat_v1\",\n  \"microbatch\": 4,\n  \"status\": \"scientific protocol frozen; formal runner and runtime validation pending\",\n  \"validation\": false\n}",
+    "bytes": 1591,
+    "mtime": 1791823985.5034237
+  },
+  "checkpoint.json": {
+    "content": "{\"step\": 3700, \"bytes\": 27876378698, \"time\": 1791954076.2257986, \"config_hash\": \"e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57\"}",
+    "bytes": 147,
+    "mtime": 1791954076.307635
+  },
+  "child.pid": {
+    "content": "50309",
+    "bytes": 5,
+    "mtime": 1791823847.8901455
+  },
+  "stdout-formal.log": {
+    "content": "/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation\n  warnings.warn(\"Cannot import apex RMSNorm, switch to vanilla implementation\")\n\n[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== \n    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0\n    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n        0., 0., 0., 0., 0., 0.]))\n\n[init_weights] HierarchyAR with init_std=0.0131762\n/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.\n  _init_core_state(\n/data/matengyu/geyugong/mindhier-reproduction/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  with torch.cuda.amp.autocast(enabled=False):\n\nResume after host reboot, checkpoint 3000, original source 06e95b8\n/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/src/mindhier/MindHier/models/basic_switti.py:25: UserWarning: Cannot import apex RMSNorm, switch to vanilla implementation\n  warnings.warn(\"Cannot import apex RMSNorm, switch to vanilla implementation\")\n\n[constructor]  ==== fused_if_available=True (fusing_add_ln=0/30, fusing_mlp=0/30) ==== \n    [HierarchyAR config ] embed_dim=1920, num_heads=30, depth=30, mlp_ratio=4.0\n    [drop ratios ] drop_rate=0.0, attn_drop_rate=0.0, drop_path_rate=0 (tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n        0., 0., 0., 0., 0., 0.]))\n\n[init_weights] HierarchyAR with init_std=0.0131762\n/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.\n  _init_core_state(\n/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  with torch.cuda.amp.autocast(enabled=False):\n",
+    "bytes": 2592,
+    "mtime": 1791824109.983076
+  },
+  "runs/stage2-formal-supervisor/exit-codes.jsonl": "{\"phase\": \"validate\", \"exit_code\": 0, \"time\": 1791427665.4380314}\n{\"phase\": \"restore\", \"exit_code\": 0, \"time\": 1791428094.6818812}\n",
+  "runs/stage2-formal-supervisor/supervisor.pid": "50300",
+  "runs/stage2-formal-supervisor.log": "",
+  "checkpoint_files": {
+    "checkpoint-step-3000.pt": 27876378698,
+    "checkpoint-step-2500.pt": 27876378698,
+    "checkpoint-step-1500.pt": 27876378698,
+    "checkpoint-step-3500.pt": 27876378698,
+    "checkpoint-step-2000.pt": 27876378698,
+    "checkpoint.pt": 27876378698,
+    "checkpoint-step-1000.pt": 27876378698,
+    "checkpoint-step-0500.pt": 27876378698
+  },
+  "sample_rows": 3756,
+  "stage1_status": {
+    "state": "completed",
+    "step": 15600,
+    "epoch": 300,
+    "time": 1791350324.7047536,
+    "smoke": false
+  }
+}
