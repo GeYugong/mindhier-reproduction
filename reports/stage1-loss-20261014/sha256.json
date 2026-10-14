@@ -1,0 +1,50 @@
+{
+  ".gitattributes": {
+    "bytes": 8,
+    "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+  },
+  "REVIEW_ZH.md": {
+    "bytes": 4149,
+    "sha256": "44b69e0fd895e3381adc989cc88e43022790a76a86065048450c012e3cae7f6e"
+  },
+  "epoch-metrics.csv": {
+    "bytes": 66218,
+    "sha256": "398bba02b952186f9551d5c7ce3d74efd744d5389f41437491322fe81b46870e"
+  },
+  "loss.alignment.json": {
+    "bytes": 2757,
+    "sha256": "0ec688cead0d7924f7cf9e22d9150697f3ff03559bf66fb8df406327fda81c1f"
+  },
+  "loss.collision-audit.json": {
+    "bytes": 512,
+    "sha256": "9c97c439384892cbf8d7054f2f9e736757f57ca7c35b4ebd77d6d00b282e571a"
+  },
+  "loss.source-audit.json": {
+    "bytes": 3875,
+    "sha256": "ceeb56027cf8cdc667140ce092bf66f1c551b015f7726ce611bcf31cb6472015"
+  },
+  "loss.text-audit.json": {
+    "bytes": 231,
+    "sha256": "3e1e5118f3291664cae3f56dc6cec3c86b964a0b13baed82f06733bc3f915e2d"
+  },
+  "plot.py": {
+    "bytes": 6901,
+    "sha256": "fa6218137ee9537727f23b92833b25acfe6d3b5f0bd158e66d846a992cae9ab1"
+  },
+  "stage1-loss.pdf": {
+    "bytes": 34302,
+    "sha256": "811a8eddb9f1f72c0c0fab14b6099ffdba63c72b938d0b5b99af33df5ef01bb9"
+  },
+  "stage1-loss.png": {
+    "bytes": 312884,
+    "sha256": "046cc5f962798f2b566f5b98dfd354fe60b5e0d6e9d14fdd7dd8b1f0f5076f06"
+  },
+  "stage1-loss.svg": {
+    "bytes": 58433,
+    "sha256": "6a064ab04220224567a2cdfc9f443aa4ce99d0a271bc81cbb42056d6f6aedf65"
+  },
+  "summary.json": {
+    "bytes": 6280,
+    "sha256": "ddd7770c72e1563c96e56800657b4dc3a520bef06a2674dca7491763ac933483"
+  }
+}
