@@ -1,0 +1,46 @@
+{
+  "checked_at": 1791990175.5588956,
+  "monitor": {
+    "pid": 2314978,
+    "started_at": 1791990078.0183065,
+    "monitor_commit": "3303166982822fd323c73a21f581ca422f86fb5c",
+    "training_source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "interval_seconds": 20,
+    "mode": "CPU-only saved-logit diagnostics",
+    "phase": "watching",
+    "last_poll_at": 1791990158.0902739,
+    "latest_checkpoint_step": 3900,
+    "latest_evaluated_step": 3900,
+    "latest_decision": {
+      "action": "continue",
+      "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+      "review_flags": [],
+      "previous_checkpoint_comparison": {
+        "previous_step": 3500,
+        "current_step": 3900,
+        "relative_ce_improvement": 0.0017749519271167595,
+        "top1_accuracy_change": 0.004464283585548401
+      },
+      "reference_milestone_steps": [
+        2500,
+        3000,
+        3500
+      ],
+      "reference_milestone_relative_improvements": [
+        0.009137821221062483,
+        0.00947193987946339
+      ],
+      "reference_confirmation_available": true,
+      "auto_stop": false,
+      "generalization_assessed": false
+    },
+    "last_error": null
+  },
+  "monitor_args": "/data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python -u scripts/review_stage2_checkpoints.py --watch --interval 20 ",
+  "monitor_status_age_seconds": 17.46862244606018,
+  "training_pid": 50309,
+  "training_completed_steps": 3940,
+  "checkpoint_step": 3900,
+  "training_source_still_clean": true,
+  "same_training_process": true
+}

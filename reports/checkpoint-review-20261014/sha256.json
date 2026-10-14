@@ -7,6 +7,10 @@
     "bytes": 236,
     "sha256": "e196ca64c9f14cac4b9dbdfa691976047eda4880ddbe07cae316c2ef4d685d01"
   },
+  "activation.json": {
+    "bytes": 1579,
+    "sha256": "15ec930a065ff03c774c66f8ae10c15273f17ae98a8fe8356a6006fd00ce326d"
+  },
   "index.json": {
     "bytes": 1442,
     "sha256": "dff472c8694370b459c98739593e7683a80de60e6b8097114af9bd06f6b6186d"
