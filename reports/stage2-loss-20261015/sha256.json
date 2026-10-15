@@ -1,0 +1,70 @@
+{
+  ".gitattributes": {
+    "bytes": 46,
+    "sha256": "37219406380b299b9f75095edb6d8aac7eb98bed3b172ef77e18d88e68b354df"
+  },
+  "REVIEW_ZH.md": {
+    "bytes": 3236,
+    "sha256": "7db6775a46e4d5c2d0592bbcea1edf31801d26db49f0c9177f7cda251467e586"
+  },
+  "checkpoint-review.json": {
+    "bytes": 7403,
+    "sha256": "ce0569319755f5456f97a0e88852b35b7757947202aebb242d9873c76c0f0455"
+  },
+  "convergence.json": {
+    "bytes": 7496,
+    "sha256": "90e0f012acac60a872906abd071afb29fb9421105947c69ec261e2c468c61052"
+  },
+  "figure-contract.json": {
+    "bytes": 1093,
+    "sha256": "52abf5ebe1a1dcf53a671f4667f1d1d2f9f63b61c9a852cbe9d02e50940a4dce"
+  },
+  "loss.alignment.json": {
+    "bytes": 1510,
+    "sha256": "3f0398bb09765a7ce6df4109ce2977ab08ab69c87c4fd84e5b6905b20735026a"
+  },
+  "loss.collision-audit.json": {
+    "bytes": 513,
+    "sha256": "d0d6070cb5ec2cb99ee0c6241e74df8ad01241523e651d4f1893245bbdb44809"
+  },
+  "loss.source-audit.json": {
+    "bytes": 3904,
+    "sha256": "2b5d80a4628adc71206f6a7ce3b48a541738a530bf6158ca215e2995b4567f89"
+  },
+  "loss.text-audit.json": {
+    "bytes": 233,
+    "sha256": "bfec3ddca5df5b35894a901eee5f5b78af81b16308f2cb70974b919622c7c48c"
+  },
+  "metrics.jsonl": {
+    "bytes": 920774,
+    "sha256": "595dfb589a1f50dfc4759cf9bf5f669c0d01b956a68f7ed94420f2880a455502"
+  },
+  "plot.py": {
+    "bytes": 4728,
+    "sha256": "15a6bbdffa0df315d197caca0ec981c8a29ee293a04c79667c0a8bcbd69ab69f"
+  },
+  "replay-check.json": {
+    "bytes": 364,
+    "sha256": "a47668086f20cd6965081c609d27912f76e50c8d7fa4fa965c1f70657304a15b"
+  },
+  "snapshot.json": {
+    "bytes": 2572,
+    "sha256": "a893fc214d8d7bd62a3b9787710be87efe3d9725b98b049eee132edb9a36c368"
+  },
+  "stage2-loss.pdf": {
+    "bytes": 74738,
+    "sha256": "02596cef8571efd0155c047e9aef525cbe859f384b728abfd0d1770d0a355f9f"
+  },
+  "stage2-loss.png": {
+    "bytes": 274191,
+    "sha256": "811f52411e20ff281b83aeb58d62eb10e847085974d00948e6f0426e7c29c1d7"
+  },
+  "stage2-loss.svg": {
+    "bytes": 156417,
+    "sha256": "8a467ba73df75260758da637c83adf5ef34b95175d33d2d2c019d46b6e36e176"
+  },
+  "summary.json": {
+    "bytes": 769,
+    "sha256": "805ae7663f3fa62a53b7edf204c7c041b9a2e123bac3f5a8ef276c178c678183"
+  }
+}

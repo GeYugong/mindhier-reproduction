@@ -1,0 +1,79 @@
+{
+  "captured_at": 1792035787.729576,
+  "status": {
+    "phase": "formal_training",
+    "pid": 20304,
+    "started_at": 1792027688.1438732,
+    "formal_training": true,
+    "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "completed_steps": 4182,
+    "target_steps": 9000,
+    "microbatch_size": 4,
+    "effective_batch": 80,
+    "updated_at": 1792035785.768458,
+    "resume_verified": true,
+    "restored_output_max_error": 0.0,
+    "restored_step": 4100,
+    "active_step": 4183,
+    "completed_micro_samples": 24,
+    "step": 4182,
+    "loss": 5.8288027286529545,
+    "lr": 5.692134043984324e-05,
+    "grad_norm": 0.48481130599975586,
+    "seconds": 97.62777286200071,
+    "time": 1792035758.4284651,
+    "peak_gpu_gib": 12.633907318115234,
+    "next_sample": 334560
+  },
+  "checkpoint": {
+    "step": 4100,
+    "bytes": 27876378698,
+    "time": 1792012713.2209356,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "monitor_status": {
+    "pid": 22537,
+    "started_at": 1792027812.2964408,
+    "monitor_commit": "853ba1b159dc3f44b73bd098ce78e3ce97d5573a",
+    "training_source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+    "interval_seconds": 20,
+    "mode": "CPU-only saved-logit diagnostics",
+    "phase": "watching",
+    "last_poll_at": 1792035772.8955142,
+    "latest_checkpoint_step": 4100,
+    "latest_evaluated_step": 4100,
+    "latest_decision": {
+      "action": "continue",
+      "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+      "review_flags": [],
+      "previous_checkpoint_comparison": {
+        "previous_step": 4000,
+        "current_step": 4100,
+        "relative_ce_improvement": -0.005011850713575329,
+        "top1_accuracy_change": -0.00178571417927742
+      },
+      "reference_milestone_steps": [
+        3000,
+        3500,
+        4000
+      ],
+      "reference_milestone_relative_improvements": [
+        0.00947193987946339,
+        0.006706684779497996
+      ],
+      "reference_confirmation_available": true,
+      "auto_stop": false,
+      "generalization_assessed": false
+    },
+    "last_error": null
+  },
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "main_head": "77d22f9575af431a720044ddabbc5bd3d5392a34",
+  "metrics_source": "runs/s01-stage2-paper-seed42/metrics.jsonl",
+  "complete_rows_observed": 4182,
+  "rows_after_status_boundary_excluded": 0,
+  "snapshot_completed_steps": 4182,
+  "active_update_excluded": true,
+  "input_log_ends_with_newline": true,
+  "only_active_post_recovery_records": true
+}

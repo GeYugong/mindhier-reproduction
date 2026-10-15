@@ -1,0 +1,12 @@
+{
+  "completed_range": [
+    4101,
+    4180
+  ],
+  "all_6400_sample_specs_equal": true,
+  "all_learning_rates_equal": true,
+  "max_loss_absolute_difference": 0.0015334129333499646,
+  "max_grad_norm_absolute_difference": 0.04030507802963257,
+  "bitwise_numerical_replay": false,
+  "original_records_retained": "runs/pipeline/formal-interruption-20261015T012251Z"
+}
