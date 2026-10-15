@@ -1,0 +1,30 @@
+{
+  "checked_at": 1792027595.9232652,
+  "step": 4100,
+  "checkpoint_bytes": 27876378698,
+  "sha256": "2cea0f8f526633063f4d2e0496b395e294fd782b642e9f1f4f0805cb52f2d249",
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57",
+  "format": "fsdp_world1_cpu_flat_v1",
+  "reference_logits_sha256": "f65bb56ff5c390ccee78ed20280748fe2e07f069705591239001743c61223d21",
+  "reference_matches_existing_review": true,
+  "parameters_finite": true,
+  "optimizer_tensors_finite": true,
+  "parameter_tensor_count": 31,
+  "buffer_tensor_count": 2,
+  "optimizer_parameter_count": 31,
+  "scheduler_last_epoch": 4100,
+  "next_sample": 328000,
+  "next_sample_spec": {
+    "position": 328000,
+    "epoch": 12,
+    "nsd_id": 33930,
+    "beta_row": 27581,
+    "top": 26,
+    "left": 5,
+    "unconditional": false
+  },
+  "archive_checkpoint_hardlink": "runs/pipeline/formal-interruption-20261015T012251Z/checkpoint-4100.pt",
+  "seconds": 142.9410467790001,
+  "full_model_restore_verified": false
+}

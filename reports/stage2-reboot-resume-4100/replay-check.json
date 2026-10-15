@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-10-15T01:32:48.430254+00:00",
+  "completed_steps": 4101,
+  "metrics_and_samples_contiguous_from_1": true,
+  "original_replay_range": [
+    4101,
+    4180
+  ],
+  "verified_completed_replay_steps": [
+    {
+      "step": 4101,
+      "all_80_sample_specs_equal": true,
+      "loss_new": 5.824718570709228,
+      "loss_original": 5.824718570709228,
+      "loss_absolute_difference": 0.0,
+      "gradient_norm_absolute_difference": 2.1576881408691406e-05,
+      "lr_equal": true,
+      "seconds_new": 106.57425378599987,
+      "seconds_original": 148.57477987601305
+    }
+  ],
+  "all_80_replay_steps_complete": false,
+  "scope": "Only listed completed replay steps compared. Full 80-step replay remains pending if completed_steps < 4180."
+}

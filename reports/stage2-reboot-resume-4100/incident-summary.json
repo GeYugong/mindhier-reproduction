@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-15T01:22:52.795049+00:00",
+  "archive": "runs/pipeline/formal-interruption-20261015T012251Z",
+  "boot_id": "a274c7b7-d381-44fb-8b6e-10f854e1c547",
+  "host_events_local_utc_plus_8": [
+    "2026-10-15 08:28 shutdown",
+    "2026-10-15 09:01 boot"
+  ],
+  "shutdown_initiator_or_reason": "unknown",
+  "original_completed_steps": 4180,
+  "interrupted_active_step": 4181,
+  "latest_complete_checkpoint_step": 4100,
+  "formal_exit_record_present": false,
+  "training_and_monitor_processes_absent_at_inspection": true,
+  "kernel_log_access": "permission denied; cause not established",
+  "raw_evidence_archive": "runs/pipeline/formal-interruption-20261015T012251Z-raw-evidence.tar.gz",
+  "raw_evidence_archive_bytes": 4920400,
+  "raw_evidence_archive_sha256": "ce110b97fba3c0fd1c44029330de9ae8930e353ca4a010aa0acbb89edabf5172",
+  "raw_evidence_archive_server_and_local_sha256_verified": true,
+  "checkpoint_backed_up_locally": false,
+  "local_disk_free_bytes_at_inspection": 28474236928,
+  "checkpoint_preservation": "hard link on server; distinct directory, not a separate device backup"
+}

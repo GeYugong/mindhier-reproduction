@@ -1,0 +1,101 @@
+"""One-time recovery from verified step 4100 after the 2026-10-15 reboot."""
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import time
+
+ROOT = Path("/data/matengyu/geyugong/mindhier-reproduction")
+SOURCE = "06e95b83a14b07fef51ebdb4c299b6df9914bb34"
+STEP = 4100
+WORKTREE = ROOT / "runs/recovery-source-06e95b8"
+RUN = ROOT / "runs/s01-stage2-paper-seed42"
+OUT = ROOT / "runs/stage2-formal-supervisor"
+ARCHIVE = ROOT / "runs/pipeline/formal-interruption-20261015T012251Z"
+
+def atomic_json(path, obj):
+    tmp = path.with_name(path.name + ".resume-4100.tmp")
+    tmp.write_text(json.dumps(obj, indent=2) + "\n")
+    tmp.replace(path)
+
+def main():
+    lock = (OUT / "lock").open("a")
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    for entry in Path("/proc").iterdir():
+        if not entry.name.isdigit():
+            continue
+        try:
+            cmd = (entry / "cmdline").read_bytes().replace(b"\0", b" ")
+        except (FileNotFoundError, PermissionError, ProcessLookupError):
+            continue
+        if b"scripts/train_stage2_formal.py" in cmd:
+            raise RuntimeError("Existing trainer: " + entry.name)
+    assert subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=WORKTREE, text=True).strip() == SOURCE
+    assert not subprocess.check_output(["git", "status", "--porcelain"], cwd=WORKTREE, text=True).strip()
+    verify = json.loads((ARCHIVE / "checkpoint-verification.json").read_text())
+    marker = json.loads((RUN / "checkpoint.json").read_text())
+    assert verify["step"] == marker["step"] == STEP
+    assert verify["source_commit"] == SOURCE
+    assert verify["parameters_finite"] and verify["optimizer_tensors_finite"] and verify["reference_matches_existing_review"]
+    assert verify["config_hash"] == marker["config_hash"]
+    assert verify["checkpoint_bytes"] == marker["bytes"] == (RUN / "checkpoint.pt").stat().st_size
+    assert os.path.samefile(RUN / "checkpoint.pt", ARCHIVE / "checkpoint-4100.pt")
+    incident = json.loads((ARCHIVE / "incident.json").read_text())
+    original_hashes = {item["path"]: item["sha256"] for item in incident["files"]}
+    prepared = []
+    # The complete pre-interruption files have already been copied and hashed.
+    # Check both copies before changing either active log.
+    for name in ("metrics.jsonl", "samples.jsonl"):
+        path = RUN / name
+        rel = str(path.relative_to(ROOT))
+        raw = path.read_bytes()
+        archived = (ARCHIVE / rel).read_bytes()
+        assert hashlib.sha256(raw).hexdigest() == original_hashes[rel]
+        assert hashlib.sha256(archived).hexdigest() == original_hashes[rel]
+        lines = raw.decode().splitlines()
+        rows = [json.loads(line) for line in lines]
+        assert [row["step"] for row in rows] == list(range(1, 4181))
+        keep = lines[:STEP]
+        prepared.append((path, ("\n".join(keep) + "\n").encode()))
+    assert json.loads((RUN / "status.json").read_text())["completed_steps"] == 4180
+    (OUT / "supervisor.pid").write_text(str(os.getpid()))
+    rollback = {"prepared_at": time.time(), "checkpoint_step": STEP,
+                "original_completed_steps": 4180, "replay_steps": [4101, 4180],
+                "original_evidence": str(ARCHIVE), "source_commit": SOURCE,
+                "checkpoint_sha256": verify["sha256"], "active_logs": []}
+    for path, raw in prepared:
+        tmp = path.with_name(path.name + ".resume-4100.tmp")
+        tmp.write_bytes(raw)
+        tmp.replace(path)
+        rollback["active_logs"].append({"path": str(path.relative_to(ROOT)),
+            "through_step": STEP, "sha256": hashlib.sha256(raw).hexdigest()})
+    atomic_json(ARCHIVE / "rollback-preparation.json", rollback)
+    state = {"stage": "stage2_formal_resume", "formal_training": True,
+             "supervisor_pid": os.getpid(), "resume_checkpoint_step": STEP,
+             "source_commit": SOURCE, "updated_at": time.time()}
+    atomic_json(ROOT / "runs/pipeline/state.json", state)
+    env = os.environ.copy()
+    env["CUDA_VISIBLE_DEVICES"] = "0"
+    command = [str(WORKTREE / ".envs/mindhier/bin/python"), "-u",
+               "scripts/train_stage2_formal.py", "--run", "s01-stage2-paper-seed42",
+               "--steps", "9000", "--microbatch", "4", "--resume"]
+    with (RUN / "stdout-formal.log").open("ab", buffering=0) as log:
+        log.write(b"\n2026-10-15 resume after host reboot; checkpoint 4100; original source 06e95b8\n")
+        child = subprocess.Popen(command, cwd=WORKTREE, env=env,
+            stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT)
+        (RUN / "child.pid").write_text(str(child.pid))
+        atomic_json(ARCHIVE / "launch.json", {"time": time.time(),
+            "supervisor_pid": os.getpid(), "trainer_pid": child.pid,
+            "command": command, "cwd": str(WORKTREE), "CUDA_VISIBLE_DEVICES": "0",
+            "source_commit": SOURCE, "checkpoint_step": STEP})
+        code = child.wait()
+    with (OUT / "exit-codes.jsonl").open("a") as f:
+        f.write(json.dumps({"phase": "formal_resume_4100", "exit_code": code, "time": time.time()}) + "\n")
+    state.update(stage="stage2_formal_completed" if code == 0 else "stage2_formal_resume_failed",
+                 exit_code=code, updated_at=time.time())
+    atomic_json(ROOT / "runs/pipeline/state.json", state)
+
+if __name__ == "__main__":
+    main()

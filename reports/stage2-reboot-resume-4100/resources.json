@@ -1,0 +1,30 @@
+{
+  "checked_at_utc": "2026-10-15T01:32:48.430254+00:00",
+  "gpu": "0, NVIDIA GeForce RTX 5090, 595.99.02, 27991 MiB, 32607 MiB, 100 %\n1, NVIDIA GeForce RTX 5090, 595.99.02, 8125 MiB, 32607 MiB, 11 %\n",
+  "memory": "               total        used        free      shared  buff/cache   available\n内存：   134374944768 82779971584  2475712512 32995016704 83360636928 51594973184\n交换：    8589930496      622592  8589307904\n",
+  "disk": "文件系统               1B的块          已用          可用 已用% 挂载点\n/dev/sda       15873633447936 9802452733952 5271118905344   66% /data\n",
+  "processes": [
+    {
+      "role": "trainer",
+      "pid": 20304,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/.envs/mindhier/bin/python -u scripts/train_stage2_formal.py --run s01-stage2-paper-seed42 --steps 9000 --microbatch 4 --resume ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8"
+    },
+    {
+      "role": "supervisor",
+      "pid": 20284,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python -u /data/matengyu/geyugong/mindhier-reproduction/runs/stage2-formal-supervisor/resume-4100.py ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction"
+    },
+    {
+      "role": "reviewer",
+      "pid": 22537,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python -u scripts/review_stage2_checkpoints.py --watch --interval 20 ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction"
+    }
+  ],
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "source_worktree_clean": true,
+  "formal_exit_codes": "{\"phase\": \"validate\", \"exit_code\": 0, \"time\": 1791427665.4380314}\n{\"phase\": \"restore\", \"exit_code\": 0, \"time\": 1791428094.6818812}\n",
+  "stdout_error_scan": "No Traceback, OutOfMemoryError, CUDA out of memory or NaN found."
+}

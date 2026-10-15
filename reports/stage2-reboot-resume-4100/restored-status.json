@@ -1,0 +1,17 @@
+{
+  "phase": "formal_training",
+  "pid": 20304,
+  "started_at": 1792027688.1438732,
+  "formal_training": true,
+  "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "completed_steps": 4100,
+  "target_steps": 9000,
+  "microbatch_size": 4,
+  "effective_batch": 80,
+  "updated_at": 1792027894.9765267,
+  "resume_verified": true,
+  "restored_output_max_error": 0.0,
+  "restored_step": 4100,
+  "active_step": 4101,
+  "completed_micro_samples": 80
+}

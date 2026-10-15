@@ -1,0 +1,36 @@
+{
+  "pid": 22537,
+  "started_at": 1792027812.2964408,
+  "monitor_commit": "853ba1b159dc3f44b73bd098ce78e3ce97d5573a",
+  "training_source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "interval_seconds": 20,
+  "mode": "CPU-only saved-logit diagnostics",
+  "phase": "watching",
+  "last_poll_at": 1792027952.4158103,
+  "latest_checkpoint_step": 4100,
+  "latest_evaluated_step": 4100,
+  "latest_decision": {
+    "action": "continue",
+    "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+    "review_flags": [],
+    "previous_checkpoint_comparison": {
+      "previous_step": 4000,
+      "current_step": 4100,
+      "relative_ce_improvement": -0.005011850713575329,
+      "top1_accuracy_change": -0.00178571417927742
+    },
+    "reference_milestone_steps": [
+      3000,
+      3500,
+      4000
+    ],
+    "reference_milestone_relative_improvements": [
+      0.00947193987946339,
+      0.006706684779497996
+    ],
+    "reference_confirmation_available": true,
+    "auto_stop": false,
+    "generalization_assessed": false
+  },
+  "last_error": null
+}

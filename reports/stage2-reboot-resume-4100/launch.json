@@ -1,0 +1,21 @@
+{
+  "time": 1792027640.8626554,
+  "supervisor_pid": 20284,
+  "trainer_pid": 20304,
+  "command": [
+    "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/.envs/mindhier/bin/python",
+    "-u",
+    "scripts/train_stage2_formal.py",
+    "--run",
+    "s01-stage2-paper-seed42",
+    "--steps",
+    "9000",
+    "--microbatch",
+    "4",
+    "--resume"
+  ],
+  "cwd": "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8",
+  "CUDA_VISIBLE_DEVICES": "0",
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "checkpoint_step": 4100
+}

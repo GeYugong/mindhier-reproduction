@@ -1,0 +1,24 @@
+{
+  "prepared_at": 1792027640.5586002,
+  "checkpoint_step": 4100,
+  "original_completed_steps": 4180,
+  "replay_steps": [
+    4101,
+    4180
+  ],
+  "original_evidence": "/data/matengyu/geyugong/mindhier-reproduction/runs/pipeline/formal-interruption-20261015T012251Z",
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "checkpoint_sha256": "2cea0f8f526633063f4d2e0496b395e294fd782b642e9f1f4f0805cb52f2d249",
+  "active_logs": [
+    {
+      "path": "runs/s01-stage2-paper-seed42/metrics.jsonl",
+      "through_step": 4100,
+      "sha256": "b5f05f420ec2bc9eba1b63e8b87b7720416701d86c8e4a0f9c87cddc42adf891"
+    },
+    {
+      "path": "runs/s01-stage2-paper-seed42/samples.jsonl",
+      "through_step": 4100,
+      "sha256": "524227389ea7cfab74ad8ddf91d3c3136d609b649b599a2670612c27898cbce7"
+    }
+  ]
+}
