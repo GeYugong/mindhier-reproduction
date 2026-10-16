@@ -1,0 +1,302 @@
+{
+  "checked_at_utc": "2026-10-16T10:03:23.358638+00:00",
+  "heartbeat_trigger": "2026-10-16T10:02:59.065Z",
+  "event": "milestone_5000_review",
+  "completed_steps": 5015,
+  "active_step": 5016,
+  "completed_micro_samples": 52,
+  "last_metric": {
+    "step": 5015,
+    "loss": 5.641760802268982,
+    "lr": 4.241925352133218e-05,
+    "grad_norm": 0.4911336302757263,
+    "seconds": 136.17435556200508,
+    "time": 1792144914.818231,
+    "peak_gpu_gib": 12.633907318115234,
+    "next_sample": 401200
+  },
+  "checkpoint": {
+    "step": 5000,
+    "bytes": 27876378698,
+    "time": 1792142885.4890876,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "status_age_seconds": 5.073550224304199,
+  "processes": {
+    "trainer": {
+      "pid": 20304,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/.envs/mindhier/bin/python -u scripts/train_stage2_formal.py --run s01-stage2-paper-seed42 --steps 9000 --microbatch 4 --resume ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8",
+      "cuda_visible_devices": [
+        "CUDA_VISIBLE_DEVICES=0"
+      ]
+    },
+    "supervisor": {
+      "pid": 20284,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python -u /data/matengyu/geyugong/mindhier-reproduction/runs/stage2-formal-supervisor/resume-4100.py ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction",
+      "cuda_visible_devices": []
+    },
+    "reviewer": {
+      "pid": 22537,
+      "command": "/data/matengyu/geyugong/mindhier-reproduction/.envs/mindhier/bin/python -u scripts/review_stage2_checkpoints.py --watch --interval 20 ",
+      "cwd": "/data/matengyu/geyugong/mindhier-reproduction",
+      "cuda_visible_devices": [
+        "CUDA_VISIBLE_DEVICES="
+      ]
+    }
+  },
+  "unique_active_trainer": true,
+  "metrics_and_samples_contiguous_from_1": true,
+  "all_checked_metrics_finite": true,
+  "replay": {
+    "verified_completed_range": [
+      4101,
+      4180
+    ],
+    "verified_steps": 80,
+    "all_sample_specs_equal": true,
+    "all_lrs_equal": true,
+    "max_loss_absolute_difference": 0.0015334129333499646,
+    "max_grad_norm_absolute_difference": 0.04030507802963257,
+    "all_80_replay_steps_complete": true
+  },
+  "monitor_age_seconds": 2.6638717651367188,
+  "latest_evaluated_step": 5000,
+  "review_decision": {
+    "action": "continue",
+    "reason": "Recent 500-step training CE is improving; no persistent review trigger.",
+    "review_flags": [],
+    "previous_checkpoint_comparison": {
+      "previous_step": 4900,
+      "current_step": 5000,
+      "relative_ce_improvement": 0.0006177743089750329,
+      "top1_accuracy_change": -0.0026785731315612793
+    },
+    "reference_milestone_steps": [
+      4000,
+      4500,
+      5000
+    ],
+    "reference_milestone_relative_improvements": [
+      0.007196173504163018,
+      0.0011302559816775658
+    ],
+    "reference_confirmation_available": true,
+    "auto_stop": false,
+    "generalization_assessed": false
+  },
+  "reference": {
+    "n_images": 1,
+    "tokens": 2240,
+    "split": "training",
+    "teacher_forced": true,
+    "ce": 6.1710896492004395,
+    "top1_accuracy": 0.04732142761349678,
+    "mean_predictive_entropy": 6.160454750061035,
+    "per_scale": [
+      {
+        "patch_size": 1,
+        "tokens": 1,
+        "ce": 0.585917592048645,
+        "top1_accuracy": 1
+      },
+      {
+        "patch_size": 2,
+        "tokens": 4,
+        "ce": 0.8372636437416077,
+        "top1_accuracy": 0.75
+      },
+      {
+        "patch_size": 3,
+        "tokens": 9,
+        "ce": 1.8754245042800903,
+        "top1_accuracy": 0.3333333432674408
+      },
+      {
+        "patch_size": 4,
+        "tokens": 16,
+        "ce": 3.613136053085327,
+        "top1_accuracy": 0.125
+      },
+      {
+        "patch_size": 6,
+        "tokens": 36,
+        "ce": 4.475679874420166,
+        "top1_accuracy": 0.2222222238779068
+      },
+      {
+        "patch_size": 9,
+        "tokens": 81,
+        "ce": 5.596538066864014,
+        "top1_accuracy": 0.04938271641731262
+      },
+      {
+        "patch_size": 13,
+        "tokens": 169,
+        "ce": 6.034368991851807,
+        "top1_accuracy": 0.047337278723716736
+      },
+      {
+        "patch_size": 18,
+        "tokens": 324,
+        "ce": 6.3827362060546875,
+        "top1_accuracy": 0.03395061567425728
+      },
+      {
+        "patch_size": 24,
+        "tokens": 576,
+        "ce": 6.49629020690918,
+        "top1_accuracy": 0.0381944440305233
+      },
+      {
+        "patch_size": 32,
+        "tokens": 1024,
+        "ce": 6.152827262878418,
+        "top1_accuracy": 0.04296875
+      }
+    ],
+    "limitation": "one already-seen fixed training crop; no independent validation, free-running reconstruction or eight-metric conclusion"
+  },
+  "training_windows_at_checkpoint": {
+    "100": {
+      "previous": {
+        "first_step": 4801,
+        "last_step": 4900,
+        "count": 100,
+        "loss_mean": 5.733995535850525,
+        "loss_std": 0.05333026127972757,
+        "lr_last": 4.440801845919572e-05
+      },
+      "latest": {
+        "first_step": 4901,
+        "last_step": 5000,
+        "count": 100,
+        "loss_mean": 5.718199303865433,
+        "loss_std": 0.055020484701169305,
+        "lr_last": 4.267797226956309e-05
+      },
+      "relative_improvement": 0.0027548385565231053
+    },
+    "500": {
+      "previous": {
+        "first_step": 4001,
+        "last_step": 4500,
+        "count": 500,
+        "loss_mean": 5.786895901012421,
+        "loss_std": 0.05216415238515057,
+        "lr_last": 5.138243400837708e-05
+      },
+      "latest": {
+        "first_step": 4501,
+        "last_step": 5000,
+        "count": 500,
+        "loss_mean": 5.739936402702331,
+        "loss_std": 0.05644970633836927,
+        "lr_last": 4.267797226956309e-05
+      },
+      "relative_improvement": 0.008114799214182131
+    }
+  },
+  "global_review_flags": [],
+  "current_training_windows": {
+    "100": {
+      "previous": {
+        "first_step": 4816,
+        "last_step": 4915,
+        "count": 100,
+        "loss_mean": 5.737421270370484,
+        "loss_std": 0.05318879665570886,
+        "lr_last": 4.414797476407351e-05
+      },
+      "latest": {
+        "first_step": 4916,
+        "last_step": 5015,
+        "count": 100,
+        "loss_mean": 5.715121710777283,
+        "loss_std": 0.05541463625563934,
+        "lr_last": 4.241925352133218e-05
+      }
+    },
+    "500": {
+      "previous": {
+        "first_step": 4016,
+        "last_step": 4515,
+        "count": 500,
+        "loss_mean": 5.785382719802857,
+        "loss_std": 0.05242112749061766,
+        "lr_last": 5.112034151914711e-05
+      },
+      "latest": {
+        "first_step": 4516,
+        "last_step": 5015,
+        "count": 500,
+        "loss_mean": 5.739573932170868,
+        "loss_std": 0.05651354337508624,
+        "lr_last": 4.241925352133218e-05
+      }
+    }
+  },
+  "recent_post_resume_steps": 30,
+  "recent_seconds_per_step": 135.34860347423285,
+  "remaining_training_days_estimate": 6.242641028296503,
+  "eta_excludes": "future interruptions, checkpoint overhead, decoding, evaluation and other subjects",
+  "logs": {
+    "trainer": {
+      "bytes": 3962,
+      "mtime": 1792027799.7445881,
+      "tail": [
+        "[init_weights] HierarchyAR with init_std=0.0131762",
+        "/data/matengyu/geyugong/neuroadapter-subject1-research/envs/neuroadapter/lib/python3.11/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:478: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.FULL_SHARD since the world size is 1.",
+        "  _init_core_state(",
+        "/data/matengyu/geyugong/mindhier-reproduction/runs/recovery-source-06e95b8/src/mindhier/MindHier/models/rope.py:43: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.",
+        "  with torch.cuda.amp.autocast(enabled=False):"
+      ],
+      "error_matches": []
+    },
+    "supervisor": {
+      "bytes": 0,
+      "mtime": 1791427286.8855317,
+      "tail": [],
+      "error_matches": []
+    },
+    "reviewer": {
+      "bytes": 1097,
+      "mtime": 1792142898.5488224,
+      "tail": [
+        "{\"evaluated_step\": 4600, \"reference_ce\": 6.160087585449219, \"decision\": \"continue\"}",
+        "{\"evaluated_step\": 4700, \"reference_ce\": 6.1816840171813965, \"decision\": \"continue\"}",
+        "{\"evaluated_step\": 4800, \"reference_ce\": 6.188107490539551, \"decision\": \"continue\"}",
+        "{\"evaluated_step\": 4900, \"reference_ce\": 6.1749043464660645, \"decision\": \"continue\"}",
+        "{\"evaluated_step\": 5000, \"reference_ce\": 6.1710896492004395, \"decision\": \"continue\"}"
+      ],
+      "error_matches": []
+    }
+  },
+  "exits": [
+    {
+      "phase": "validate",
+      "exit_code": 0,
+      "time": 1791427665.4380314
+    },
+    {
+      "phase": "restore",
+      "exit_code": 0,
+      "time": 1791428094.6818812
+    }
+  ],
+  "file_mtimes": {
+    "status.json": 1792145002.5699377,
+    "metrics.jsonl": 1792144914.8178349,
+    "samples.jsonl": 1792144914.8178349,
+    "checkpoint.json": 1792142885.488364,
+    "stdout-formal.log": 1792027799.7445881,
+    "child.pid": 1792027640.862632
+  },
+  "gpu": "0, NVIDIA GeForce RTX 5090, 31127 MiB, 32607 MiB, 100 %, 66\n1, NVIDIA GeForce RTX 5090, 24324 MiB, 32607 MiB, 100 %, 62\n",
+  "memory": "               total        used        free      shared  buff/cache   available\n内存：   134374944768 89840496640  9077895168 33181597696 69850357760 44534448128\n交换：    8589930496  8579338240    10592256\n",
+  "disk_free_gib": 4792.237873077393,
+  "main_head": "2d35e0374ccb782b979d9d245c2308a9e087b3c6",
+  "main_git_status": "",
+  "run_source_head": "06e95b83a14b07fef51ebdb4c299b6df9914bb34"
+}
