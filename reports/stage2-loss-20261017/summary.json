@@ -1,0 +1,19 @@
+{
+  "completed_steps": 5232,
+  "target_steps": 9000,
+  "metric": "mean training VQ token cross-entropy",
+  "source_sha256": "8094038b76172a48effe0f782165ba12100c82534ec3ba7fffa417cb92125ed2",
+  "rows": 5232,
+  "excluded_complete_rows": 0,
+  "rolling_mean": "trailing 100 steps, shown from step 100; raw observations all shown",
+  "first_100_mean": 7.756620991230011,
+  "last_100_mean": 5.700458562374115,
+  "previous_100_mean": 5.7186594457626345,
+  "previous_500_mean": 5.768428389453888,
+  "last_500_mean": 5.7202493508338925,
+  "recent_500_relative_improvement_percent": 0.8352194977071847,
+  "last_step_loss": 5.7752755880355835,
+  "last_step_lr": 3.8705435238616784e-05,
+  "no_independent_validation": true,
+  "snapshot_beijing": "2026-10-17T02:17:35.104785+08:00"
+}

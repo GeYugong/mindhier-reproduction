@@ -1,0 +1,4 @@
+* -text
+*.svg -diff
+*.pdf binary
+*.png binary
