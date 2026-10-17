@@ -1,0 +1,18 @@
+{
+  "checkpoint-review.json": "a2781b6aa4a99530dffd17ba4585d3d828def30e1bc3e9d252719bb8c66fb486",
+  ".gitattributes": "37219406380b299b9f75095edb6d8aac7eb98bed3b172ef77e18d88e68b354df",
+  "stage2-loss.png": "87e4ab58baa42438e2244de7ce869b7c5e3ae0a1045e3ca63b125d0ae7263ec6",
+  "metrics.jsonl": "a20658ea4719187ce2e7a4cb3cb4e462add30a0ad8cb2adaa4f4722e6b0c5dda",
+  "comparison.json": "0efa5d29407d361a7f837d9c72d90d6649affcf22f3aa3d97db95b01536b2559",
+  "summary.json": "2d5d9668e19e1e41a7f5a4781b79252285844cc5d31ec97c66074c20fce36e6a",
+  "stage2-loss.svg": "773080f5749f465a5e8b04ddb9ee1c451f81981e338ec50cf0a97753291b6e9f",
+  "loss.alignment.json": "3f0398bb09765a7ce6df4109ce2977ab08ab69c87c4fd84e5b6905b20735026a",
+  "loss.collision-audit.json": "10b57e2b15ee8103dd3bb448643c9dfe12674d3e75e72e7700161efe7e294401",
+  "stage2-loss.pdf": "6bc3809e99885dedb217e84046b35438af6b0ec864cc0f50139a385007fbf025",
+  "loss.text-audit.json": "76a5095985c1a76c25e2ba1a4a2a315347e83476bd4c87c96fbbf03309391fb7",
+  "snapshot.json": "efecdbe563a3a2f7ce0ef666e3efd0de980203bf41c0fd90dd698a99a15db0c1",
+  "figure-contract.json": "9dec9098a48bf99bbab1aeeb630627035fb90a6f2df3589e96f9a56d6b729b50",
+  "loss.source-audit.json": "01b8445765337d5ff79ad06600f424e1398abd7012dcd3cf2586148f37d93c35",
+  "REVIEW_ZH.md": "283628487ffc19f376d4fd42f72106fd250e23b4184d87b9430e111cc5c597db",
+  "plot.py": "f5f81cc8d43a50b91846c2903c912c4b8e394d619272c8a555eea089004b25ae"
+}

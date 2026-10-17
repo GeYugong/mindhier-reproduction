@@ -1,0 +1,20 @@
+{
+  "question": "Is Stage 2 still improving its training objective?",
+  "claim": "Training CE continues to decrease slowly; these observations do not establish convergence or generalization.",
+  "backend": "python",
+  "reuse": "existing two-panel loss workflow; same loss definition and full completed-step log",
+  "archetype": "quantitative grid",
+  "panels": {
+    "a": "full training trajectory and initial optimization",
+    "b": "latest 1500 updates expose continuing improvement and local variability"
+  },
+  "data_mapping": {
+    "step": "completed optimizer update",
+    "loss": "mean training VQ token CE; lower is better"
+  },
+  "smoothing": "unweighted trailing 100 updates; all raw observations retained; no invented prefix",
+  "scope": "S1, seed42, training only, no independent validation",
+  "uncertainty": "one trajectory, no across-seed confidence intervals",
+  "export": "7.2 by 3.9 inches; PNG 300 dpi preview and editable PDF/SVG; not a journal submission",
+  "snapshot_policy": "Freeze exactly steps 1..5500, as requested"
+}
