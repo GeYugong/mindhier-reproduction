@@ -1,0 +1,6 @@
+{
+  "original_sha256": "cdba0af8e84f10784f1b7bd205c9660e977b5f135c355e801383102f7350c4cf",
+  "derived_sha256": "ef59909b0668405d66c1fae9eca3889fb70a5106636179da308bc8affb3468d9",
+  "change": "Remove entire optimizer update loop; perform original resume validation and save reference inputs only",
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34"
+}

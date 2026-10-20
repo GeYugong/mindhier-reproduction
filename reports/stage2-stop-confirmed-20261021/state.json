@@ -1,0 +1,23 @@
+{
+  "watcher_pid": 3050054,
+  "trainer_pid": 20304,
+  "target_step": 8500,
+  "requested_at": 1792509521.9105587,
+  "reason": "Explicit user instruction: save complete checkpoint then stop",
+  "automatic_resume_forbidden": true,
+  "original_budget": 9000,
+  "phase": "stopped_checkpoint_preserved",
+  "last_poll_at": 1792513231.6158676,
+  "latest_checkpoint": 8400,
+  "checkpoint": {
+    "step": 8500,
+    "bytes": 27876378698,
+    "time": 1792513232.5200913,
+    "config_hash": "e08b20d94e6981ee6c3abdeb8b2d2cd9bd13e82f62ca8581ae3df82ca43b5a57"
+  },
+  "suspended_at": 1792513238.7225142,
+  "stopped_at": 1792513239.723147,
+  "finished_at": 1792513295.6139114,
+  "full_checkpoint_sha256": "851d1ec46ecef310adee60451dff75ab856929f29363a6b24763e283f700c471",
+  "resume_validation_performed": false
+}

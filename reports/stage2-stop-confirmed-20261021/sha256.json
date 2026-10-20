@@ -1,0 +1,26 @@
+{
+  "checkpoint-8500.pt": {
+    "bytes": 27876378698,
+    "sha256": "851d1ec46ecef310adee60451dff75ab856929f29363a6b24763e283f700c471"
+  },
+  "checkpoint.json": {
+    "bytes": 147,
+    "sha256": "f310fe426e191b2efb10c96c9211269420ba760b820c53d1e2974f02b8a8f838"
+  },
+  "metrics.jsonl": {
+    "bytes": 1877687,
+    "sha256": "0486c6cc1b17feab175f64f7c49bf65785b1fdddf713b2f06f9b7165b99fa3f7"
+  },
+  "samples.jsonl": {
+    "bytes": 79464493,
+    "sha256": "84c337b4ad6326aa8ee6e3ea8d72e7c971a93933e8fae56ab606f6ff736375ae"
+  },
+  "status.json": {
+    "bytes": 690,
+    "sha256": "a5ffad96d6e29b43517da2eead457161643fc50f05ca33d6d11c4299c1849c40"
+  },
+  "stdout-formal.log": {
+    "bytes": 3962,
+    "sha256": "3e3361e0e8352477c5e35b5fc362574a7fa562212f6b4a13f3acd9b55c83bebd"
+  }
+}
