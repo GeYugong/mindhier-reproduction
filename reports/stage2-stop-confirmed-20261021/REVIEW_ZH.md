@@ -11,3 +11,5 @@
 已启动独立恢复核验进程runs/s01-stage2-8500-restore-gate。它从原06e95b8训练源派生，删除整个训练循环，仅执行相同FSDP包装、参数/优化器/调度器/RNG恢复和固定输入logits比较；零训练更新。结果以该目录status.json和exit.json为准，本报告尚不声称恢复通过。正式推理必须待此门控完成。
 
 轻量证据归档9,956,396字节已同步本地，双端SHA256一致：572e3ed7868111b52ac45296a2600b1f3382a9750f7251f9f99d103c19749da6。完整checkpoint仍在服务器保留，尚未进行异机复制。
+
+后续实测：原06e95b8包装恢复门控已通过，exit_code=0，恢复logits最大绝对误差=0.0，training_updates_executed=0。推理权重导出已由独立监督器启动（runs/s01-stage2-8500-export），输出artifacts/s01-stage2-final8500；须等待export_verified后才开始正式解码。

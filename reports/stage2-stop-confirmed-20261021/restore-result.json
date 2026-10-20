@@ -1,0 +1,17 @@
+{
+  "phase": "restore_gate_verified",
+  "pid": 3132408,
+  "started_at": 1792513319.602119,
+  "formal_training": false,
+  "git_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "completed_steps": 8500,
+  "target_steps": 9000,
+  "microbatch_size": 4,
+  "effective_batch": 80,
+  "updated_at": 1792513418.1463928,
+  "resume_verified": true,
+  "restored_output_max_error": 0.0,
+  "restored_step": 8500,
+  "training_updates_executed": 0,
+  "purpose": "8500 inference restore gate"
+}
