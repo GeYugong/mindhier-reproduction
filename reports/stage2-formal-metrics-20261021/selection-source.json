@@ -1,0 +1,5 @@
+{
+  "url": "https://raw.githubusercontent.com/littlepure2333/MindBridge/main/src/models.py",
+  "sha256": "5f2481b82fdcb547a9b9ce1902290930312de3301a0e17a7dca721ca82873e13",
+  "used_for": "hidden_state=False preprocessing and global embedding normalization; file not executed"
+}

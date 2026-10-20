@@ -1,0 +1,8 @@
+{
+  "identity": true,
+  "independent_scalar_all_pairs": true,
+  "exact_representable_ties_zero": true,
+  "n": 11,
+  "denominator": 110,
+  "note": "strict comparison has no tolerance; arbitrary mathematically equal floating correlations can differ at machine precision"
+}

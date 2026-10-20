@@ -1,0 +1,14 @@
+[
+  {
+    "protocol": "n1",
+    "images": 1000,
+    "candidates": 1000,
+    "all_tensor_hashes_shapes_finite_range_verified": true
+  },
+  {
+    "protocol": "n4",
+    "images": 1000,
+    "candidates": 4000,
+    "all_tensor_hashes_shapes_finite_range_verified": true
+  }
+]
