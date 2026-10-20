@@ -1,0 +1,15 @@
+{
+  "phase": "export_verified",
+  "formal_training": false,
+  "started_at": 1792513457.1279752,
+  "checkpoint_step": 8500,
+  "training_budget": 8500,
+  "original_budget": 9000,
+  "source_commit": "06e95b83a14b07fef51ebdb4c299b6df9914bb34",
+  "checkpoint_sha256": "851d1ec46ecef310adee60451dff75ab856929f29363a6b24763e283f700c471",
+  "export_bytes": 9293523173,
+  "parameter_keys": 670,
+  "max_absolute_error": 0.0,
+  "sha256": "6a166a708089f45b4f56284ce079484236d91c60d6f0933375ce8ea9efe22a0a",
+  "finished_at": 1792513474.6035476
+}

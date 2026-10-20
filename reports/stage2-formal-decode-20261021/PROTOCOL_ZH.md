@@ -1,0 +1,9 @@
+# S1 8500步正式解码协议
+
+使用用户预先指定8500步最终权重；原包装恢复与独立FP32导出重载前向误差均0。导出SHA256为6a166a708089f45b4f56284ce079484236d91c60d6f0933375ce8ea9efe22a0a，解码启动时重新核验。训练预算8500/9000偏差保留。
+
+测试manifest为subj01_test_trials.csv，3000trial/1000图，每图正好3条响应；与训练图无交集。按nsd_id升序，三条beta FP32均值。subject batch=1，seed59每图重置，cfg6、top_k400、top_p0.95、turn_on_cfg_start_si1，十尺度参数不覆盖。N1独立运行；N4以该图响应repeat_interleave四次一次生成四候选，RNG批量形状与N1不同，不用第一候选替代N1。B_orig=1时作者候选排列无需跨图reshape。使用已经过pilot验证的共同pipeline，context_order=forward及全局query偏移mask修复与训练对应；不重新引入未修补的recs pipeline逆序上下文。
+
+BF16 blocks及autocast、FP32root/VQ/fMRI参数，与现有pilot精度协议一致；相对作者FP32推理属于数值实施差异。全部输出浮点tensor、每候选PNG、GT PNG、ID/三条beta行/seed/时间/tensorSHA保留。GT在生成之后才读取，不参与生成。N4选优将在离线步骤按作者CLIP ViT-L/14全局embedding余弦与GT比较完成，保存四个分数及索引；随后N1与N4选中结果分别计算八指标，完整1000×1000二选一比较。当前仅生成，未宣称指标完成。
+
+源检查：生成模型、fMRI及VQ相关实现与原06e95b8一致；测试数据数量、唯一ID、3响应、训练不相交检查通过；程序编译通过。启动前查真实进程，GPU0空闲、GPU1其他项目不动。每个协议使用独立目录和flock，已有状态拒绝覆盖。首个真实输出仅用于形状、有限值与保存链路检查，不据测试表现调参。
