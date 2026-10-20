@@ -1,0 +1,12 @@
+{
+  "watcher_pid": 3050054,
+  "trainer_pid": 20304,
+  "target_step": 8500,
+  "requested_at": 1792509521.9105587,
+  "reason": "Explicit user instruction: save complete checkpoint then stop",
+  "automatic_resume_forbidden": true,
+  "original_budget": 9000,
+  "phase": "waiting_checkpoint",
+  "last_poll_at": 1792509576.2257943,
+  "latest_checkpoint": 8400
+}
