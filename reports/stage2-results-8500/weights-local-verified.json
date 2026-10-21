@@ -1,0 +1,16 @@
+{
+  "Completed": [
+    {
+      "Bytes": 27876378698,
+      "File": "checkpoint-8500.pt",
+      "Sha256": "851d1ec46ecef310adee60451dff75ab856929f29363a6b24763e283f700c471"
+    },
+    {
+      "Bytes": 9293523173,
+      "File": "generator-fp32.pt",
+      "Sha256": "6a166a708089f45b4f56284ce079484236d91c60d6f0933375ce8ea9efe22a0a"
+    }
+  ],
+  "Phase": "complete",
+  "Finished": "2026-10-20T18:37:06.2606003Z"
+}

@@ -1,0 +1,6 @@
+{
+  "selection_argmax_and_tensor_identity": 1000,
+  "same_gt_features_both_protocols": true,
+  "ids_aligned": 1000,
+  "finite_eight_metrics_both_protocols": true
+}
