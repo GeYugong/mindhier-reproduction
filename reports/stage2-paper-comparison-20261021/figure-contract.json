@@ -1,0 +1,14 @@
+{
+  "purpose": "Show fixed-index paired reconstructions without cherry-picking",
+  "selection": [
+    0,
+    250,
+    500,
+    750
+  ],
+  "from_total": 1000,
+  "backend": "python",
+  "layout": "four rows, GT/N1/N4 columns",
+  "image_integrity": "unaltered PNGs; uniform display resizing only",
+  "limitations": "N4 selection uses GT; 8500 vs 9000 update budget"
+}
