@@ -10,7 +10,7 @@ from skimage.color import rgb2gray
 from skimage.metrics import structural_similarity
 import clip
 ROOT=Path(__file__).resolve().parents[1]
-ap=argparse.ArgumentParser();ap.add_argument('--protocol',choices=['n1','n4'],required=True);args=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('--protocol',choices=['n1','n4'],required=True);ap.add_argument('--resume',action='store_true');args=ap.parse_args()
 OUT=ROOT/f'artifacts/s01-final8500-{args.protocol}-metrics'
 
 def digest(p):
@@ -32,8 +32,12 @@ def pixels(gt,rec):
     return {'PixCorr':float(corr),'SSIM':float(ssim)}
 def main():
     OUT.mkdir(exist_ok=True);lock=(OUT/'lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-    assert not (OUT/'status.json').exists(), 'Refuse to overwrite metric run'
+    assert args.resume or not (OUT/'status.json').exists(), 'Refuse to overwrite metric run'
     report={'phase':'preparing','started_at':time.time(),'pid':os.getpid(),'formal_result':True,'test_data_used':True,'protocol':args.protocol,'checkpoint_step':8500,'training_budget':8500,'original_budget':9000,'gt_assisted':args.protocol=='n4','git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'metrics':{},'sanity':{},'weights':[],'preprocess':'all GT/recons bilinear resize 256 antialias=True; then author metric-specific resize/normalize; FP32 extraction; FP64 correlations'}
+    if args.resume:
+        report=json.loads((OUT/'status.json').read_text());assert report['protocol']==args.protocol and report['checkpoint_step']==8500
+        report.update(phase='resuming',pid=os.getpid(),resumed_at=time.time(),resume_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip())
+        report.pop('error',None);report.pop('traceback',None)
     def save():
         report['updated_at']=time.time();(OUT/'status.tmp').write_text(json.dumps(report,indent=2));(OUT/'status.tmp').replace(OUT/'status.json')
     save();torch.set_num_threads(4);torch.manual_seed(42)
@@ -52,7 +56,7 @@ def main():
         assert len(rows)==1000 and len({r['nsd_id'] for r in rows})==1000
         assert [r['index'] for r in rows]==list(range(1000))
         for row in rows:assert digest(source/row['tensor'])==row['sha256']
-        rec=torch.cat([torch.load(source/r['tensor'],weights_only=True) for r in rows]);gt=torch.stack([T.ToTensor()(Image.open(source/r['gt_png'])) for r in rows])
+        rec=torch.cat([torch.load(source/r['tensor'],weights_only=True,map_location='cpu') for r in rows]);gt=torch.stack([T.ToTensor()(Image.open(source/r['gt_png'])) for r in rows])
         gt=T.Resize(256,antialias=True)(gt);rec=T.Resize(256,antialias=True)(rec)
         report['sample_ids']=[r['nsd_id'] for r in rows];report['metrics'].update(pixels(gt,rec))
         report['sanity']['pixels_identity']=pixels(gt[:4],gt[:4]);report['sanity']['pixels_shift']=pixels(gt[:4],gt[:4].roll(1,0))
@@ -61,13 +65,18 @@ def main():
         normalize=T.Normalize([.485,.456,.406],[.229,.224,.225])
         specifications=[('AlexNet',256,['features.4','features.11'],['AN2','AN5']),('Inception',342,['avgpool'],['Incep']),('CLIP',224,[None],['CLIP']),('Eff',255,['avgpool'],['Eff']),('SwAV',224,['avgpool'],['SwAV'])]
         for kind,size,nodes,names in specifications:
+            if args.resume and all(name in report['metrics'] and (OUT/(name+'-features.npz')).exists() for name in names):
+                for name in names:
+                    file=OUT/(name+'-features.npz');expected=json.loads((ROOT/'reports/stage2-metric-recovery-20261021/preserved-features-sha256.json').read_text())
+                    assert digest(file)==expected[file.name]
+                continue
             report['phase']='extracting_'+kind;save()
             norm=normalize
-            if kind=='AlexNet':m=models.alexnet(weights=None);m.load_state_dict(torch.load(cache/needed[0],weights_only=True))
-            elif kind=='Inception':m=models.inception_v3(weights=None,init_weights=False,transform_input=True);m.load_state_dict(torch.load(cache/needed[1],weights_only=True))
-            elif kind=='Eff':m=models.efficientnet_b1(weights=None);m.load_state_dict(torch.load(cache/needed[2],weights_only=True))
+            if kind=='AlexNet':m=models.alexnet(weights=None);m.load_state_dict(torch.load(cache/needed[0],weights_only=True,map_location='cpu'))
+            elif kind=='Inception':m=models.inception_v3(weights=None,init_weights=False,transform_input=True);m.load_state_dict(torch.load(cache/needed[1],weights_only=True,map_location='cpu'))
+            elif kind=='Eff':m=models.efficientnet_b1(weights=None);m.load_state_dict(torch.load(cache/needed[2],weights_only=True,map_location='cpu'))
             elif kind=='SwAV':
-                m=models.resnet50(weights=None);s=torch.load(cache/needed[3],weights_only=True);s={k.replace('module.',''):v for k,v in s.items()};missing,extra=m.load_state_dict(s,strict=False);assert set(missing)<=set(['fc.weight','fc.bias']) and all(k.startswith(('projection_head.','prototypes.')) for k in extra),(missing,extra)
+                m=models.resnet50(weights=None);s=torch.load(cache/needed[3],weights_only=True,map_location='cpu');s={k.replace('module.',''):v for k,v in s.items()};missing,extra=m.load_state_dict(s,strict=False);assert set(missing)<=set(['fc.weight','fc.bias']) and all(k.startswith(('projection_head.','prototypes.')) for k in extra),(missing,extra)
             else:
                 m,_=clip.load(str(cache/needed[4]),device='cpu',jit=False);m=m.float();norm=T.Normalize([.48145466,.4578275,.40821073],[.26862954,.26130258,.27577711])
             if kind!='CLIP':m=create_feature_extractor(m,return_nodes=nodes)
